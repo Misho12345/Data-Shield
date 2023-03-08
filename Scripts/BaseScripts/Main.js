@@ -16,6 +16,11 @@ function init() {
 
     for (const gObj of gameObjects)
         for (const component of gObj.components)
+            if (typeof component.Awake !== "undefined")
+                component.Awake();
+
+    for (const gObj of gameObjects)
+        for (const component of gObj.components)
             if (typeof component.Start !== "undefined")
                 component.Start();
 
@@ -31,6 +36,10 @@ function update() {
 
     context.translate(canvas.width / 2, canvas.height / 2);
 
+    for (const gObj of gameObjects)
+        for (const component of gObj.components)
+            if (typeof component.EarlyUpdate !== "undefined")
+                component.EarlyUpdate()
 
     for (const gObj of gameObjects)
         for (const component of gObj.components)
