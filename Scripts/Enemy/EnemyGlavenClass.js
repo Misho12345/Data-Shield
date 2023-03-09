@@ -5,7 +5,7 @@ class EnemyGlavenClass extends GameObject {
         this.imageID = imageID;
         this.typeEnemy = typeEnemy;
         this.animator = this.AddComponent(Animator);
-        this.animator.stages = [{ delay: 0.3, length: 4 }];
+        this.animator.stages = [{ delay: 0.3, length: 4 }, { delay: 0.3, length: 4 }];
         this.animator.image= this.imageID;
         
         this.animator.Play(0);

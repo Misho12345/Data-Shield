@@ -48,6 +48,10 @@ function angleCalc(cX, cY, x, y) {
 function update() {
     for (let i = 0; i < enemies.length; i++) {
         enemies[i].Update();
+        if (enemies[i].hp <= 0) {
+            enemies[i] = enemies[enemies.length - 1];
+            enemies.pop();
+        }
     }
     deltaTime = (new Date() - time) / 1000;
     time = new Date();
@@ -78,6 +82,8 @@ function update() {
 
     setTimeout(update, 10);
 }
+let enemies = [];
+let memmory = 5120;
 let yourmom = new GameObject(new Vector2(0 , 0), new Vector2(memmory,memmory));
 let yourmomAnimator = yourmom.AddComponent(Animator);
 yourmomAnimator.stages = [{ delay: Infinity, length: 1 }];

@@ -4,8 +4,8 @@ let screenOffset = new Vector2();
 
 class PlayerInput extends Component {
     #velocity = new Vector2();
-    speed = 5;
-
+    speed = 50;
+    hp = 10;
     #maxOffset = 100;
 
     Awake() {
@@ -61,4 +61,4 @@ function StartAnimation(idx, text) {
 
 let player = new GameObject(Vector2.zero, new Vector2(100));
 player.AddComponent(Renderer).color = "red";
-player.AddComponent(PlayerInput);
+let playerInput=player.AddComponent(PlayerInput);

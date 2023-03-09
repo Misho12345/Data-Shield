@@ -9,7 +9,7 @@ class CPUclass {
         this.updates++;
         if (CPUAnimator.frame === 0) {
             CPUAnimator.Pause();
-            setInterval(() => CPUAnimator.Play(), Math.random()*30000);
+            setInterval(() => CPUAnimator.Play(), Math.floor(Math.random()*30000));
             CPUAnimator.frame = 1;
         }
     }
