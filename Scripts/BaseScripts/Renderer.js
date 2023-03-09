@@ -11,7 +11,7 @@ class Renderer extends Component {
     offset = new Vector2();
 
     LateUpdate() {
-        const centerPos = this.transform.centerPos;
+        const centerPos = Vector2.Subtraction(this.transform.centerPos, screenOffset);
 
         context.save();
 

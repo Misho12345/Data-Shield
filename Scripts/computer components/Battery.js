@@ -6,15 +6,13 @@ class Battery extends GameObject {
         this.cap = 1000;
         this.charge = this.cap;
 
+        this.Update();
     }
-    update() {
-        console.log("as3223232dsad");
-        
+    Update() {
         setInterval(this.update, 10000);
     }
 }
 let battery = new Battery(Vector2.zero, new Vector2(150, 200));
-battery.update()
 
 let batteryRenderer = battery.AddComponent(Renderer);
 batteryRenderer.imageId = 'batteryImage';

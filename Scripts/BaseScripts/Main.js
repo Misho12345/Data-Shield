@@ -3,6 +3,14 @@
 let deltaTime;
 let time;
 
+let paused = false;
+
+function PausePlay() {
+    paused = !paused;
+    time = new Date();
+    update();
+}
+
 function resizePage() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -31,9 +39,11 @@ function update() {
     deltaTime = (new Date() - time) / 1000;
     time = new Date();
 
-    context.globalAlpha = 1;
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    if (paused) return;
 
+    context.globalAlpha = 1;
+
+    context.clearRect(0, 0, canvas.width, canvas.height);
     context.translate(canvas.width / 2, canvas.height / 2);
 
     for (const gObj of gameObjects)
@@ -51,7 +61,7 @@ function update() {
             if (typeof component.LateUpdate !== "undefined")
                 component.LateUpdate();
 
-    context.translate(canvas.width / -2, canvas.height / -2);
+    context.translate(-canvas.width / 2, -canvas.height / 2);
 
     setTimeout(update, 10);
 }

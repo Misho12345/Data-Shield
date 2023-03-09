@@ -13,7 +13,7 @@
     overflow: hidden;
 }
 
-canvas, #ui, .ui {
+#canvas, #ui, .ui {
     position: fixed;
     user-select: none;
 }
@@ -37,6 +37,11 @@ canvas, #ui, .ui {
     width: 10%;
     border: 0.2vw solid white;
     background: #5553;
+}
+
+.icon {
+    width: 25%;
+    margin: 1vw;
 }
 
 ::-webkit-scrollbar {
