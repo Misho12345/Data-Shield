@@ -127,12 +127,12 @@ class Vector2 {
     }
 
 
-    static Lerp = (a, b, t) => new Vector2(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t);
+    static Lerp(a, b, t){ return new Vector2(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t);}
 
-    static Dot = (vec1, vec2) => vec1.x * vec2.x + vec1.y * vec2.y;
+    static Dot(vec1, vec2) { return vec1.x * vec2.x + vec1.y * vec2.y;}
 
-    static Angle = (from, to) => Math.acos(Vector2.Dot(from, to) / from.magnitude / to.magnitude);
-    static SignedAngle = (from, to) => Vector2.Angle(from, to) * Math.sign(from.x * to.y - from.y * to.x);
+    static Angle(from, to) { return Math.atan2(from.y - to.y, from.x - to.x); }
+    static SignedAngle(from, to) { return Vector2.Angle(from, to) * Math.sign(from.x * to.y - from.y * to.x);}
 
 
     static Reflect(vec, normal) {

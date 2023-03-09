@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Sample Page</title>
+        <title>Kiber Kon</title>
 
         <link rel="stylesheet" href="style.css">
     </head>
@@ -11,16 +11,18 @@
         <canvas id="canvas" class="full-fill"></canvas>
 
         <div id="ui" class="full-fill">
+            <img src="Images/UI/pause.png" class="ui" style="top: 2%; left: 2%; width: 3%;" alt="pause-button">
+
             <div class="side-list ui" style="top: 0; right: 0;">
                 <div class="center flex-dir-column">
                     <div class="center flex-dir-row">
-                        <img class="icon" src="Images/bitcoin.png" alt="bitcoin" />
                         <span>100</span>
+                        <img class="icon" src="Images/UI/bitcoin.png" alt="bitcoin" />
                     </div>
 
                     <div class="center flex-dir-row">
-                        <img class="icon" src="Images/bitcoin.png" alt="bitcoin" />
                         <span>100</span>
+                        <img class="icon" src="Images/UI/energy.png" alt="svetkavichka" />
                     </div>
                 </div>
             </div>
@@ -29,29 +31,37 @@
                 <div class="center flex-dir-column">
                     <div class="center flex-dir-row" style="position: relative">
                         <div id="animation1"></div>
-                        <img class="icon" src="Images/bitcoin.png" alt="bitcoin" />
                         <span>100</span>
+                        <img class="icon" src="Images/UI/strength.png" alt="strength" />
                     </div>
 
                     <div class="center flex-dir-row" style="position: relative">
                         <div id="animation2"></div>
-                        <img class="icon" src="Images/bitcoin.png" alt="bitcoin" />
                         <span>100</span>
+                        <img class="icon" src="Images/UI/bitcoin.png" alt="bitcoin" />
                     </div>
                 </div>
             </div>
 
             <div id="weapon" class="ui center circle flex-dir-column">
-                <img src="Images/pistol.png" alt="weapon" style="width: 70%; transform: rotate(-10deg);" />
+                <img style="width: 70%; transform: rotate(-10deg);" src="Images/pistol.png" alt="weapon" />
                 <div style="margin: 4% 0 -8% 20%"><span id="weapon-curr-ammo">5</span> / <span id="weapon-max-ammo">12</span></div>
+            </div>
+
+            <img id="ui-battery" class="ui" src="Images/UI/Battery/battery0.png" alt="UI battery img">
+
+            <div id="pause-menu" class="ui full-fill center flex-dir-column">
+                <div id="pause-menu-header">Pause Menu</div>
+                <div class="pause-menu-option">Close</div>
+                <div class="pause-menu-option">Majka ti</div>
             </div>
         </div>
 
         <div style="display: none">
-            <img src="Images/battery/battery.png" id="batteryImage" alt="" />
+            <img src="Images/battery.png" id="batteryImage" alt="" />
 
-            <img src="Images/GPU/GPU.png" id="GPUImage" alt="" />
-            <img src="Images/CPU/CPU.png" id="CPUImage" alt="" />
+            <img src="Images/GPU.png" id="GPUImage" alt="" />
+            <img src="Images/CPU.png" id="CPUImage" alt="" />
         </div>
 
         <script src="Scripts/BaseScripts/Vector2.js"></script>

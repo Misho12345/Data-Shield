@@ -31,14 +31,31 @@ class PlayerInput extends Component {
     }
 }
 
+function StopAnimation(el) {
+}
+
 function StartAnimation(idx, text) {
     let el = document.getElementById("animation" + idx);
+    StopAnimation(el);
     el.innerText = text;
     el.className = "animation"
+
+    el.innerText = text;
+
+    let number = +text;
+    if (isNaN(number) || number === 0) {
+        el.style.color = "gray";
+        el.innerText = "+" + number;
+    }
+    else if (number > 0) {
+        el.style.color = "green";
+        el.innerText = "+" + number;
+    }
+    else el.style.color = "red";
+
     el.addEventListener("animationend", _ => {
         el.classList.remove("animation");
         el.innerText = "";
-        console.log("in")
     })
 }
 

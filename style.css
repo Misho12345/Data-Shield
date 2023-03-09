@@ -50,7 +50,6 @@
     width: 10%;
     background: #0005;
     height: auto;
-    padding-right: 2vw;
     text-shadow: 0 0 1vw #000;
     row-gap: 1vw;
 }
@@ -84,8 +83,37 @@
     }
 }
 
+#ui-battery {
+    top: 2%;
+    left: 10%;
+}
+
+#pause-menu {
+    background: #000a;
+    row-gap: 2vw;
+}
+
+#pause-menu-header {
+    font-size: 5vw;
+    margin: 1vw;
+}
+
+.pause-menu-option {
+    font-size: 5vw;
+    border-radius: 5%;
+    padding: 1vw;
+    border: 0.5vw solid gray;
+    background: lightgray;
+}
+
+.pause-menu-option:hover {
+    border-color: darkgray;
+    background: gray;
+}
+
 ::-webkit-scrollbar {
     width: 0.8vw;
+    font-size: 3vw;
 }
 
 ::-webkit-scrollbar-thumb {
