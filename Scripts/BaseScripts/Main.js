@@ -49,8 +49,12 @@ function update() {
     for (let i = 0; i < enemies.length; i++) {
         enemies[i].Update();
         if (enemies[i].hp <= 0) {
-            enemies[i] = enemies[enemies.length - 1];
-            enemies.pop();
+            enemies[i].Destroy();
+           // delete enemies[i];
+            
+            /*enemies[i] = enemies[enemies.length - 1];
+            enemies.pop();*/
+            enemies.splice(i,1);
         }
     }
     deltaTime = (new Date() - time) / 1000;
@@ -82,6 +86,8 @@ function update() {
 
     setTimeout(update, 10);
 }
+let enemies = [];
+let memmory = 5120;
 let motherboard = new GameObject(new Vector2(0 , 0), new Vector2(memmory,memmory));
 let motherboardAnimator = motherboard.AddComponent(Animator);
 motherboardAnimator.stages = [{ delay: Infinity, length: 1 }];

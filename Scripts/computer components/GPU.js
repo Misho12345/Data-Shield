@@ -6,7 +6,11 @@ class GPUclass {
         this.updates = 0;
     };
     Update() {
-        GPUAnimator.framesDelay = -1 / batteryUpdate.charge * 20;
+        if (batteryUpdate.charge <= 0) {
+            GPUAnimator.framesDelay = Infinity;
+            return;
+        }
+        GPUAnimator.framesDelay = 1 / batteryUpdate.charge * 20;
         /*
         this.updates++;
         this.updates = this.updates % 100;

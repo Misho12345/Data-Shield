@@ -6,8 +6,11 @@ class EnemyGlavenClass extends GameObject {
         this.typeEnemy = typeEnemy;
         this.animator = this.AddComponent(Animator);
         this.animator.stages = [{ delay: 0.3, length: 4 }, { delay: 0.3, length: 4 }];
-        this.animator.image= this.imageID;
+        this.animator.image = this.imageID;
         
         this.animator.Play(0);
+    }
+    OnDestroyed() {
+       // playerInput.zoins = +playerInput.zoins + (this.typeEnemy + 1);
     }
 }

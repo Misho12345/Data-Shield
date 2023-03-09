@@ -1,6 +1,6 @@
 class Virus extends EnemyGlavenClass {
     constructor(waveN) {
-        super('VirusImage', 'Virus', randomInteger(memmory) - memmory / 2, randomInteger(2) * memmory - memmory / 2,150,150);
+        super('VirusImage', 1, randomInteger(memmory) - memmory / 2, randomInteger(2) * memmory - memmory / 2,150,150);
         //this.position = new Vector2(randomInteger(memmory) - memmory / 2, randomInteger(memmory) - memmory / 2)
         this.position = new Vector2(0, 0);
         this.dmg = waveN;
@@ -29,6 +29,7 @@ class Virus extends EnemyGlavenClass {
             this.animator.stage = 1;
             player.hp--;
             this.zahapahCD = 500;
+            //this.hp=-1;
         } else if (this.zahapahCD<350) {
             
             this.animator.stage = 0;

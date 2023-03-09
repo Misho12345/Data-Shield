@@ -1,6 +1,6 @@
 "use strict";
 
-let Shop = new GameObject(new Vector2(-200, 300), new Vector2(200, 200));
+let Shop = new GameObject(new Vector2(200, 300), new Vector2(200, 200));
 class Shopclass {
     constructor() {
         this.updates = 0;

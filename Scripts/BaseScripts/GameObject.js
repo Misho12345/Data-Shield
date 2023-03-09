@@ -73,7 +73,7 @@ class GameObject {
     OnDestroyed() { }
 
     Destroy() {
-        gameObjects.splice(this.idx);
+        gameObjects.splice(this.idx,1);
         for (let i = this.idx; i < gameObjects.length; i++) {
             gameObjects[i].idx = i;
         }

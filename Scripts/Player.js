@@ -5,9 +5,16 @@ let screenOffset = new Vector2();
 class PlayerInput extends Component {
     #velocity = new Vector2();
     speed = 50;
+    
     hp = 10;
     #maxOffset = 100;
-
+    zoinsElement = document.getElementById('coins');
+    set zoins(v) {
+        this.zoinsElement.innerText = v;
+    }
+    get zoins() {
+        return this.zoinsElement.innerText;
+    }
     Awake() {
         this.input = this.gameObject.AddComponent(Input);
 

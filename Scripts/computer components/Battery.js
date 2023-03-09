@@ -18,9 +18,12 @@ class Battery {
                 batteryAnimator.stage = 2
             } else if (this.charge / this.cap < 0.25) {
                 batteryAnimator.stage = 3
+                
             }
             if (this.charge / this.cap < 0.01) {
-                batteryAnimator.stage = 4
+                batteryAnimator.Play(4);
+    
+                //batteryAnimator.Pause();
             }
         }
         this.updatesLived++;
