@@ -82,11 +82,9 @@ function update() {
 
     setTimeout(update, 10);
 }
-let enemies = [];
-let memmory = 5120;
-let yourmom = new GameObject(new Vector2(0 , 0), new Vector2(memmory,memmory));
-let yourmomAnimator = yourmom.AddComponent(Animator);
-yourmomAnimator.stages = [{ delay: Infinity, length: 1 }];
+let motherboard = new GameObject(new Vector2(0 , 0), new Vector2(memmory,memmory));
+let motherboardAnimator = motherboard.AddComponent(Animator);
+motherboardAnimator.stages = [{ delay: Infinity, length: 1 }];
 //batteryAnimator.stages = [{ delay: Infinity, length: 5 }];
-yourmomAnimator.image = "yourmom";
-yourmomAnimator.Play(0);
+motherboardAnimator.image = "motherboard";
+motherboardAnimator.Play(0);
