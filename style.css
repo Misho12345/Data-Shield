@@ -5,6 +5,7 @@
     padding: 0;
     font: 1.5vw 'Orbitron', sans-serif;
     color: white;
+
 }
 
 .full-fill {
@@ -86,6 +87,7 @@
 #ui-battery {
     top: 2%;
     left: 10%;
+    width: 10%;
 }
 
 #pause-menu {
@@ -102,13 +104,42 @@
     font-size: 5vw;
     border-radius: 5%;
     padding: 1vw;
-    border: 0.5vw solid gray;
-    background: lightgray;
+    border: 0.5vw solid #2c354d;
+    background: #283540;
 }
 
 .pause-menu-option:hover {
-    border-color: darkgray;
-    background: gray;
+    background: #404973;
+}
+
+#progress-bar-container {
+    width: 50%;
+    height: 50%;
+
+    border: 0.3vw solid darkred;
+    background: #222;
+}
+
+#progress-bar {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    position: relative;
+}
+
+#progress-bar::after {
+    content: "";
+    display: block;
+    background-color: #4CAF50;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#text-under-progress-bar {
+    width: 100%;
+    text-align: center;
+    text-shadow: 0 0 1vw #000;
 }
 
 ::-webkit-scrollbar {
