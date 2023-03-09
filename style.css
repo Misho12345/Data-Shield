@@ -3,7 +3,7 @@
 * {
     margin: 0;
     padding: 0;
-    font: 1vw 'Orbitron', sans-serif;
+    font: 1.5vw 'Orbitron', sans-serif;
     color: white;
 }
 
@@ -22,6 +22,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.flex-dir-row {
+    flex-direction: row;
+}
+
+.flex-dir-column {
     flex-direction: column;
 }
 
@@ -39,9 +46,42 @@
     background: #5553;
 }
 
+.side-list {
+    width: 10%;
+    background: #0005;
+    height: auto;
+    padding-right: 2vw;
+    text-shadow: 0 0 1vw #000;
+    row-gap: 1vw;
+}
+
 .icon {
     width: 25%;
     margin: 1vw;
+}
+
+.animation {
+    animation-name: slide-in-out;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    right: 110%;
+    color: red;
+    position: absolute;
+}
+
+@keyframes slide-in-out {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
 }
 
 ::-webkit-scrollbar {

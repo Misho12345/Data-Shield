@@ -31,6 +31,17 @@ class PlayerInput extends Component {
     }
 }
 
+function StartAnimation(idx, text) {
+    let el = document.getElementById("animation" + idx);
+    el.innerText = text;
+    el.className = "animation"
+    el.addEventListener("animationend", _ => {
+        el.classList.remove("animation");
+        el.innerText = "";
+        console.log("in")
+    })
+}
+
 let player = new GameObject(Vector2.zero, new Vector2(100));
 player.AddComponent(Renderer).color = "red";
 player.AddComponent(PlayerInput);

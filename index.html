@@ -11,14 +11,37 @@
         <canvas id="canvas" class="full-fill"></canvas>
 
         <div id="ui" class="full-fill">
-            <div style="top: 0; right: 0; width: 15%; height: 30%; background: #5555; row-gap: 1vw" class="ui">
-                <div class="center" style="flex-flow: row">
-                    <img class="icon" src="Images/bitcoin.png" alt="bitocin" />
-                    <span>100</span>
+            <div class="side-list ui" style="top: 0; right: 0;">
+                <div class="center flex-dir-column">
+                    <div class="center flex-dir-row">
+                        <img class="icon" src="Images/bitcoin.png" alt="bitcoin" />
+                        <span>100</span>
+                    </div>
+
+                    <div class="center flex-dir-row">
+                        <img class="icon" src="Images/bitcoin.png" alt="bitcoin" />
+                        <span>100</span>
+                    </div>
                 </div>
             </div>
 
-            <div id="weapon" class="ui center circle">
+            <div class="side-list ui" style="top: 50%; right: 0;">
+                <div class="center flex-dir-column">
+                    <div class="center flex-dir-row" style="position: relative">
+                        <div id="animation1"></div>
+                        <img class="icon" src="Images/bitcoin.png" alt="bitcoin" />
+                        <span>100</span>
+                    </div>
+
+                    <div class="center flex-dir-row" style="position: relative">
+                        <div id="animation2"></div>
+                        <img class="icon" src="Images/bitcoin.png" alt="bitcoin" />
+                        <span>100</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="weapon" class="ui center circle flex-dir-column">
                 <img src="Images/pistol.png" alt="weapon" style="width: 70%; transform: rotate(-10deg);" />
                 <div style="margin: 4% 0 -8% 20%"><span id="weapon-curr-ammo">5</span> / <span id="weapon-max-ammo">12</span></div>
             </div>
