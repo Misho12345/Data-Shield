@@ -4,11 +4,25 @@ let deltaTime;
 let time;
 
 let paused = false;
+let pauseMenu = document.getElementById("pause-menu");
+
+let shopOpened = false;
+let shopMenu = document.getElementById("shop");
 
 function PausePlay() {
+    if (shopOpened) {
+        shopOpened = true;
+        shopMenu.style.display = "none";
+        update();
+        return;
+    }
+
     paused = !paused;
     time = new Date();
-    update();
+    if (!paused) {
+        pauseMenu.style.display = "none";
+        update();
+    } else pauseMenu.style.display = "flex";
 }
 
 function resizePage() {
@@ -52,7 +66,7 @@ function update() {
     deltaTime = (new Date() - time) / 1000;
     time = new Date();
 
-    if (paused) return;
+    if (paused || shopOpened) return;
 
     context.globalAlpha = 1;
 
@@ -78,9 +92,7 @@ function update() {
 
     setTimeout(update, 10);
 }
-let motherboard = new GameObject(new Vector2(0 , 0), new Vector2(memmory,memmory));
-let motherboardAnimator = motherboard.AddComponent(Animator);
-motherboardAnimator.stages = [{ delay: Infinity, length: 1 }];
-//batteryAnimator.stages = [{ delay: Infinity, length: 5 }];
-motherboardAnimator.image = "motherboard";
-motherboardAnimator.Play(0);
+
+let motherboard = new GameObject(Vector2.zero, new Vector2(memmory));
+let motherboardARenderer = motherboard.AddComponent(Renderer);
+motherboardARenderer.imageId = "motherboard";

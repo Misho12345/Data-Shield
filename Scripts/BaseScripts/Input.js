@@ -8,6 +8,8 @@ let isKeyUp = {};
 window.addEventListener("keydown", key => {
     isKeyDown[key.code] = !isKeyPressed[key.code];
     isKeyPressed[key.code] = true;
+
+    if (key.code === "Escape") PausePlay();
 });
 
 window.addEventListener("keyup", key => isKeyUp[key.code] = true);
@@ -108,3 +110,5 @@ class Input extends Component {
         }
     }
 }
+
+let input = new GameObject().AddComponent(Input);

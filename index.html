@@ -13,12 +13,12 @@
         <div id="ui" class="full-fill">
             <div class="side-list ui" style="top: 0; right: 0;">
                 <div class="center flex-dir-column">
-                    <div class="center flex-dir-row">
+                    <div class="center flex-dir-row side-list-el">
                         <img class="icon" src="Images/UI/coin.gif" alt="coin" />
                         <span>100</span>
                     </div>
 
-                    <div class="center flex-dir-row">
+                    <div class="center flex-dir-row side-list-el">
                         <img class="icon" src="Images/UI/bitcoin.png" alt="bitcoin" />
                         <span>100</span>
                     </div>
@@ -27,48 +27,65 @@
 
             <div class="side-list ui" style="top: 50%; right: 0;">
                 <div class="center flex-dir-column">
-                    <div class="center flex-dir-row" style="position: relative">
+                    <div class="center flex-dir-row side-list-el" style="position: relative">
                         <div id="animation1"></div>
-                        <img class="icon" src="Images/UI/strength.png" alt="strength" />
+                        <img class="icon" src="Images/UI/strength.png" alt="" />
                         <span>100</span>
                     </div>
 
-                    <div class="center flex-dir-row" style="position: relative">
+                    <div class="center flex-dir-row side-list-el" style="position: relative">
                         <div id="animation2"></div>
-                        <img class="icon" src="Images/UI/speed.png" alt="speed" />
+                        <img class="icon" src="Images/UI/speed.png" alt="" />
+                        <span>100</span>
+                    </div>
+
+                    <div class="center flex-dir-row side-list-el" style="position: relative">
+                        <div id="animation3"></div>
+                        <img class="icon" src="Images/UI/hitSpeed.png" alt="" />
+                        <span>100</span>
+                    </div>
+
+                    <div class="center flex-dir-row side-list-el" style="position: relative">
+                        <div id="animation4"></div>
+                        <img class="icon" src="Images/UI/bulletSpeed.png" alt="" />
                         <span>100</span>
                     </div>
                 </div>
             </div>
 
             <div id="weapon" class="ui center circle flex-dir-column">
-                <img style="width: 70%; transform: rotate(-10deg);" src="Images/pistol.png" alt="weapon" />
+                <img style="width: 70%; transform: rotate(-10deg);" src="Images/pistol.png" alt="" />
                 <div style="margin: 4% 0 -8% 20%"><span id="weapon-curr-ammo">5</span> / <span id="weapon-max-ammo">12</span></div>
             </div>
 
-            <img id="ui-battery" class="ui" src="Images/UI/Battery/battery0.png" alt="UI battery img">
+            <img id="pause-button" class="ui" onclick="alert(1)" style="cursor: pointer" src="Images/UI/pause.png" alt="pause button" />
 
-<!--            <div id="pause-menu" class="ui full-fill center flex-dir-column">-->
-<!--                <div id="pause-menu-header">Pause Menu</div>-->
-<!--                <div class="pause-menu-option">Close</div>-->
-<!--                <div class="pause-menu-option">Majka ti</div>-->
-<!--            </div>-->
+            <img id="ui-battery" class="ui" src="Images/UI/Battery/battery0.png" alt="UI battery img" />
 
-                <div class="ui center flex-dir-column" style="width:100%; height: 10%; top: 5%; row-gap: 20%">
-                    <div id="progress-bar-container">
-                        <div id="progress-bar"></div>
-                    </div>
-                    <div id="text-under-progress-bar">amogus</div>
+            <div class="ui center flex-dir-column" style="left: 25%; right: 25%; row-gap: 25%; height: 10%; top: 5%;">
+                <div id="progress-bar-container">
+                    <div id="progress-bar"></div>
                 </div>
+                <div id="text-under-progress-bar">neshot neshot afefwq</div>
+            </div>
+
+            <div id="pause-menu" class="ui full-fill center flex-dir-column" style="display: none">
+                <div id="pause-menu-header">Pause Menu</div>
+                <div class="pause-menu-option" onclick="PausePlay()">Close</div>
+                <div class="pause-menu-option">Neshto</div>
+            </div>
+
+            <div id="shop" class="ui full-fill"></div>
         </div>
 
         <div style="display: none">
             <img src="Images/battery.png" id="batteryImage" alt="" />
-
             <img src="Images/GPU.png" id="GPUImage" alt="" />
             <img src="Images/CPU.png" id="CPUImage" alt="" />
             <img src="Images/Enemies/Virus/Virus.png" id="VirusImage" alt="" />
             <img src="Images/motherboard.png" id="motherboard" alt="" />
+
+            <img src="Images/firewall.png" id="firewall" alt="" />
         </div>
 
         <script src="Scripts/BaseScripts/Vector2.js"></script>

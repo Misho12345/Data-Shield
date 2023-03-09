@@ -1,39 +1,42 @@
 "use strict";
 
 let battery = new GameObject(new Vector2(-180, -45)   , new Vector2(670, 351));
+let batteryUI = document.getElementById("ui-battery");
 
 class Battery {
-    constructor() {
-        this.cap = 1000;
-        this.charge = 1000;
-        this.updatesLived = 0
-    };
+    cap = 1000;
+    charge = 1000;
+    cooldown = 0;
+
     Update() {
-        if (this.updatesLived > 0) {
-            if (this.charge / this.cap > 0.75) {
-                batteryAnimator.stage = 0
-            } else if (this.charge / this.cap < 0.75 && this.charge / this.cap > 0.5) {
-                batteryAnimator.stage = 1
-            } else if (this.charge / this.cap < 0.5 && this.charge / this.cap > 0.25) {
-                batteryAnimator.stage = 2
-            } else if (this.charge / this.cap < 0.25) {
-                batteryAnimator.stage = 3
-            }
-            if (this.charge / this.cap < 0.01) {
-                batteryAnimator.stage = 4
-            }
+        if (this.cooldown > 0) {
+            this.cooldown -= deltaTime;
+            return
         }
-        this.updatesLived++;
+
+        this.cooldown = 3;
+
+        let percentage = this.charge / this.cap;
+
+        if (percentage > 0.75) batteryAnimator.Play(0);
+        else if (percentage < 0.75 && percentage > 0.5) batteryAnimator.Play(1);
+        else if (percentage < 0.5 && percentage > 0.25) batteryAnimator.Play(2);
+        else if (percentage < 0.25 && percentage > 0.01) batteryAnimator.Play(3);
+        else batteryAnimator.Play(4)
+
+        batteryUI.src = "Images/UI/Battery/battery" + batteryAnimator.stage + ".png";
     }
 }
 let batteryUpdate = battery.AddComponent(Battery);
 let batteryAnimator = battery.AddComponent(Animator);
-batteryAnimator.stages = [  { delay: 0.2, length: 5 },
-                            { delay: 0.2, length: 5 },
-                            { delay: 0.2, length: 5 },
-                            { delay: 0.2, length: 5 },
-                            { delay: 0.2, length: 1 }];
-//batteryAnimator.stages = [{ delay: Infinity, length: 5 }];
+batteryAnimator.stages = [
+    { delay: 0.2, length: 5 },
+    { delay: 0.2, length: 5 },
+    { delay: 0.2, length: 5 },
+    { delay: 0.2, length: 5 },
+    { delay: 0.2, length: 1 }
+];
+
 batteryAnimator.image = "batteryImage";
 batteryAnimator.Play(0);
 
