@@ -62,6 +62,8 @@ class Animator extends Renderer {
         this.frame = -1;
     }
 
+    get paused() { return this.#paused; }
+
     Pause() {
         this.#paused = true;
     }

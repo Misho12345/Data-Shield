@@ -48,20 +48,21 @@ function init() {
 
     update();
 }
+
 function areColliding(a, b) {
     return (b.position.x <= a.position.x + a.scale.x &&
         a.position.x <= b.position.x + b.scale.x &&
         b.position.y <= a.position.y + a.scale.y &&
         a.position.y <= b.position.y + b.scale.y)
 }
-function angleCalc(cX, cY, x, y) {
-    let angle = Math.atan2(y - cY, x - cX);
-    if (y >= cY) return angle;
-    else return Math.PI * 2 + angle;
-}
+
 function update() {
     for (let i = 0; i < enemies.length; i++) {
         enemies[i].Update();
+        if (enemies[i].hp <= 0) {
+            enemies[i].Destroy();
+            enemies.splice(i,1);
+        }
     }
     deltaTime = (new Date() - time) / 1000;
     time = new Date();
@@ -93,6 +94,8 @@ function update() {
     setTimeout(update, 10);
 }
 
-let motherboard = new GameObject(Vector2.zero, new Vector2(memmory));
+let memory = 5120;
+
+let motherboard = new GameObject(Vector2.zero, new Vector2(memory));
 let motherboardARenderer = motherboard.AddComponent(Renderer);
 motherboardARenderer.imageId = "motherboard";

@@ -58,6 +58,10 @@
     width: 100%;
 }
 
+.side-list-el-v {
+    width: 75%;
+}
+
 .icon {
     width: 25%;
     margin: 1vw;

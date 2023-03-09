@@ -70,15 +70,13 @@ class GameObject {
         return components;
     }
 
-    OnDestroyed() { }
-
     Destroy() {
-        gameObjects.splice(this.idx);
+        gameObjects.splice(this.idx,1);
         for (let i = this.idx; i < gameObjects.length; i++) {
             gameObjects[i].idx = i;
         }
 
-        this.OnDestroyed();
+        if (typeof this.OnDestroyed !== "undefined") this.OnDestroyed();
 
         delete this;
     }

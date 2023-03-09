@@ -38,7 +38,7 @@ class Action {
     }
 }
 
-class Input extends Component {
+class Input {
 
     actions = [];
 

@@ -2,24 +2,38 @@
 
 let screenOffset = new Vector2();
 
-class PlayerInput extends Component {
+class PlayerInput {
     #velocity = new Vector2();
+    #coins;
+    
     speed = 8;
+    hp = 10;
 
     #maxOffset = 100;
+    coinsElement = document.getElementById('coins');
+
+    set coins(v) {
+        this.#coins = v;
+        this.coinsElement.innerText = v;
+    }
+
+    get coins() {
+        return this.#coins;
+    }
 
     Awake() {
+        this.coins = 0;
+
         input.AddAction("KeyW", undefined, _ => this.#velocity.y = -1, _ => this.#velocity.y = 0);
         input.AddAction("KeyA", undefined, _ => this.#velocity.x = -1, _ => this.#velocity.x = 0);
-        input.AddAction("KeyS", undefined, _ => this.#velocity.y =  1, _ => this.#velocity.y = 0);
-        input.AddAction("KeyD", undefined, _ => this.#velocity.x =  1, _ => this.#velocity.x = 0);
+        input.AddAction("KeyS", undefined, _ => this.#velocity.y = 1, _ => this.#velocity.y = 0);
+        input.AddAction("KeyD", undefined, _ => this.#velocity.x = 1, _ => this.#velocity.x = 0);
 
         input.AddAction("Space", _ => {
             if (player.transform.position.DistanceFrom(new Vector2(760, -400)) < 500) {
                 shopOpened = true;
                 shopMenu.style.display = "flex";
-            }
-            else this.Shoot();
+            } else this.Shoot();
         });
     }
 
@@ -35,9 +49,8 @@ class PlayerInput extends Component {
     }
 
     Shoot() {
-
+        console.log("pow");
     }
-
 }
 
 function StartAnimation(idx, text) {

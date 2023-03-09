@@ -131,8 +131,11 @@ class Vector2 {
 
     static Dot(vec1, vec2) { return vec1.x * vec2.x + vec1.y * vec2.y;}
 
-    static Angle(from, to) { return Math.atan2(from.y - to.y, from.x - to.x); }
-    static SignedAngle(from, to) { return Vector2.Angle(from, to) * Math.sign(from.x * to.y - from.y * to.x);}
+    static Angle(from, to) {
+        let angle = Math.atan2(to.y - from.y, to.x - from.x);
+        if (to.y <= from.y) angle += Math.PI * 2;
+        return angle;
+    }
 
 
     static Reflect(vec, normal) {

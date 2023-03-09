@@ -3,7 +3,7 @@
 let Deg2Rad = (v) => v * 0.01745329251;
 let Rad2Deg = (v) => v / 0.01745329251;
 
-class Transform extends Component {
+class Transform {
     position;
     scale;
     rotation;
