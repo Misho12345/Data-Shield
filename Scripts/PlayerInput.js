@@ -29,14 +29,14 @@ class PlayerInput {
         input.AddAction("KeyS", undefined, _ => this.#velocity.y = 1, _ => this.#velocity.y = 0);
         input.AddAction("KeyD", undefined, _ => this.#velocity.x = 1, _ => this.#velocity.x = 0);
 
-        input.AddAction("Space", _ => {
+        input.AddAction("KeyE", _ => {
             if (this.inShopRange) {
                 shopOpened = true;
                 shopMenu.style.display = "flex";
             }
-        }, _ => {
-            if (!this.inShopRange) this.Shoot();
         });
+
+        input.AddAction("Space", undefined, _ => this.Shoot());
     }
 
     Update() {
