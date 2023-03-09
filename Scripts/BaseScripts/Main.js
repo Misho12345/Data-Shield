@@ -34,8 +34,21 @@ function init() {
 
     update();
 }
-
+function areColliding(a, b) {
+    return (b.position.x <= a.position.x + a.scale.x &&
+        a.position.x <= b.position.x + b.scale.x &&
+        b.position.y <= a.position.y + a.scale.y &&
+        a.position.y <= b.position.y + b.scale.y)
+}
+function angleCalc(cX, cY, x, y) {
+    let angle = Math.atan2(y - cY, x - cX);
+    if (y >= cY) return angle;
+    else return Math.PI * 2 + angle;
+}
 function update() {
+    for (let i = 0; i < enemies.length; i++) {
+        enemies[i].Update();
+    }
     deltaTime = (new Date() - time) / 1000;
     time = new Date();
 
@@ -65,3 +78,9 @@ function update() {
 
     setTimeout(update, 10);
 }
+let yourmom = new GameObject(new Vector2(0 , 0), new Vector2(memmory,memmory));
+let yourmomAnimator = yourmom.AddComponent(Animator);
+yourmomAnimator.stages = [{ delay: Infinity, length: 1 }];
+//batteryAnimator.stages = [{ delay: Infinity, length: 5 }];
+yourmomAnimator.image = "yourmom";
+yourmomAnimator.Play(0);

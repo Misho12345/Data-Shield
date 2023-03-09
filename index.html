@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Kiber Kon</title>
+        <title>Sample Page</title>
 
         <link rel="stylesheet" href="style.css">
     </head>
@@ -11,18 +11,16 @@
         <canvas id="canvas" class="full-fill"></canvas>
 
         <div id="ui" class="full-fill">
-            <img src="Images/UI/pause.png" class="ui" style="top: 2%; left: 2%; width: 3%;" alt="pause-button">
-
             <div class="side-list ui" style="top: 0; right: 0;">
                 <div class="center flex-dir-column">
                     <div class="center flex-dir-row">
+                        <img class="icon" src="Images/bitcoin.png" alt="bitcoin" />
                         <span>100</span>
-                        <img class="icon" src="Images/UI/bitcoin.png" alt="bitcoin" />
                     </div>
 
                     <div class="center flex-dir-row">
+                        <img class="icon" src="Images/bitcoin.png" alt="bitcoin" />
                         <span>100</span>
-                        <img class="icon" src="Images/UI/energy.png" alt="svetkavichka" />
                     </div>
                 </div>
             </div>
@@ -31,14 +29,14 @@
                 <div class="center flex-dir-column">
                     <div class="center flex-dir-row" style="position: relative">
                         <div id="animation1"></div>
+                        <img class="icon" src="Images/bitcoin.png" alt="bitcoin" />
                         <span>100</span>
-                        <img class="icon" src="Images/UI/strength.png" alt="strength" />
                     </div>
 
                     <div class="center flex-dir-row" style="position: relative">
                         <div id="animation2"></div>
+                        <img class="icon" src="Images/bitcoin.png" alt="bitcoin" />
                         <span>100</span>
-                        <img class="icon" src="Images/UI/bitcoin.png" alt="bitcoin" />
                     </div>
                 </div>
             </div>
@@ -58,13 +56,19 @@
         </div>
 
         <div style="display: none">
-            <img src="Images/battery.png" id="batteryImage" alt="" />
+            <img src="Images/battery/battery.png" id="batteryImage" alt="" />
+
+            <img src="Images/GPU.png" id="GPUImage" alt="" />
+            <img src="Images/CPU/CPU.png" id="CPUImage" alt="" />
+            <img src="Images/Enemies/Virus/Virus.png" id="VirusImage" alt="" />
+            <img src="Images/yourmomboard.png" id="yourmom" alt="" />
 
             <img src="Images/GPU.png" id="GPUImage" alt="" />
             <img src="Images/CPU.png" id="CPUImage" alt="" />
         </div>
 
         <script src="Scripts/BaseScripts/Vector2.js"></script>
+        <script src="Scripts/Main.js"></script>
         <script src="Scripts/BaseScripts/Component.js"></script>
         <script src="Scripts/BaseScripts/Transform.js"></script>
         <script src="Scripts/BaseScripts/Renderer.js"></script>
@@ -76,6 +80,9 @@
         <script src="Scripts/computer%20components/Battery.js"></script>
         <script src="Scripts/computer%20components/GPU.js"></script>
         <script src="Scripts/computer%20components/CPU.js"></script>
+        <script src="Scripts/Enemy/EnemyGlavenClass.js"></script>
+        <script src="Scripts/Enemy/Enemies/Virus.js"></script>
+
         <script src="Scripts/Enemy/Waves.js"></script>
         <script src="Scripts/computer%20components/Antivirus.js"></script>
 

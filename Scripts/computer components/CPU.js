@@ -1,6 +1,6 @@
 "use strict";
 
-let CPU = new GameObject(new Vector2(-200, 300), new Vector2(200, 200));
+let CPU = new GameObject(new Vector2(2375 - memmory / 2, 2864.5 - memmory / 2), new Vector2(190, 191));
 class CPUclass {
     constructor() {
         this.updates = 0;

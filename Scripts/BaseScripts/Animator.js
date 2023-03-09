@@ -5,7 +5,7 @@ class Animator extends Renderer {
     #paused = true;
 
     #framesCount;
-    #framesDelay;
+    framesDelay;
 
     #stages = [];
     #maxLength;
@@ -21,7 +21,7 @@ class Animator extends Renderer {
             return;
         }
 
-        this.#cooldown = this.#framesDelay;
+        this.#cooldown = this.framesDelay;
         this.frame++;
 
         if (this.frame >= this.#framesCount)
@@ -55,7 +55,7 @@ class Animator extends Renderer {
             return;
 
         this.#framesCount = this.#stages[stage].length;
-        this.#framesDelay = this.#stages[stage].delay;
+        this.framesDelay = this.#stages[stage].delay;
         this.#cooldown = -1;
 
         this.stage = stage;
