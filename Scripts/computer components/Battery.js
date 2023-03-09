@@ -1,19 +1,34 @@
 "use strict";
 
-class Battery extends GameObject {
-    constructor(a,b) {
-        super(a,b);
+let battery = new GameObject(Vector2.zero   , new Vector2(300, 150));
+class Battery {
+    constructor() {
         this.cap = 1000;
-        this.charge = this.cap;
-
-        this.Update();
-    }
+        this.charge = 1000;
+        this.updatesLived = 0
+    };
     Update() {
-        setInterval(this.update, 10000);
+        if (this.updatesLived > 0) {
+            if (this.charge / this.cap > 0.75) {
+                batteryAnimator.stage = 0
+            } else if (this.charge / this.cap < 0.75 && this.charge / this.cap > 0.5) {
+                batteryAnimator.stage = 1
+            } else if (this.charge / this.cap < 0.5 && this.charge / this.cap > 0.25) {
+                batteryAnimator.stage = 2
+            } else if (this.charge / this.cap < 0.25) {
+                batteryAnimator.stage = 3
+            }
+            if (this.charge / this.cap < 0.01) {
+                batteryAnimator.stage = 4
+            }
+        }
+        this.updatesLived++;
     }
 }
-let battery = new Battery(Vector2.zero, new Vector2(150, 200));
+let batteryUpdate = battery.AddComponent(Battery);
+let batteryAnimator = battery.AddComponent(Animator);
+batteryAnimator.stages = [{ delay: 0, length: 1 }, { delay: 0, length: 1 }, { delay: 0, length: 1 }, { delay: 0, length: 1 }, { delay: 0, length: 1 }];
+//batteryAnimator.stages = [{ delay: Infinity, length: 5 }];
+batteryAnimator.image = "batteryImage";
+batteryAnimator.Play(0);
 
-let batteryRenderer = battery.AddComponent(Renderer);
-batteryRenderer.imageId = 'batteryImage';
-//batteryRenderer.color = 'gray';
