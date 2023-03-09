@@ -1,12 +1,12 @@
 "use strict";
 
-let GPU = new GameObject(new Vector2(2380 - memmory / 2, 2124 - memmory / 2), new Vector2(350, 192));
+let GPU = new GameObject(new Vector2(-180, -435), new Vector2(350, 192));
 class GPUclass {
     constructor() {
         this.updates = 0;
     };
     Update() {
-        GPUAnimator.framesDelay = - (1 / (batteryUpdate.charge/20))
+        GPUAnimator.framesDelay = -1 / batteryUpdate.charge * 20;
         /*
         this.updates++;
         this.updates = this.updates % 100;

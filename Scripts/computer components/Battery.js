@@ -1,6 +1,7 @@
 "use strict";
 
-let battery = new GameObject(new Vector2(2380 - memmory / 2 ,2514 -  memmory / 2)   , new Vector2(670, 351));
+let battery = new GameObject(new Vector2(-180, -45)   , new Vector2(670, 351));
+
 class Battery {
     constructor() {
         this.cap = 1000;
