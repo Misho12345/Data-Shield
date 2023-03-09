@@ -1,6 +1,6 @@
 "use strict";
 
-let battery = new GameObject(Vector2.zero   , new Vector2(300, 150));
+let battery = new GameObject(new Vector2(2380 - memmory / 2 ,2514 -  memmory / 2)   , new Vector2(670, 351));
 class Battery {
     constructor() {
         this.cap = 1000;
@@ -27,7 +27,11 @@ class Battery {
 }
 let batteryUpdate = battery.AddComponent(Battery);
 let batteryAnimator = battery.AddComponent(Animator);
-batteryAnimator.stages = [{ delay: 0, length: 1 }, { delay: 0, length: 1 }, { delay: 0, length: 1 }, { delay: 0, length: 1 }, { delay: 0, length: 1 }];
+batteryAnimator.stages = [  { delay: 0.2, length: 5 },
+                            { delay: 0.2, length: 5 },
+                            { delay: 0.2, length: 5 },
+                            { delay: 0.2, length: 5 },
+                            { delay: 0.2, length: 1 }];
 //batteryAnimator.stages = [{ delay: Infinity, length: 5 }];
 batteryAnimator.image = "batteryImage";
 batteryAnimator.Play(0);

@@ -1,11 +1,12 @@
 "use strict";
 
-let GPU = new GameObject(new Vector2(200, 300), new Vector2(150, 200));
+let GPU = new GameObject(new Vector2(2380 - memmory / 2, 2124 - memmory / 2), new Vector2(350, 192));
 class GPUclass {
     constructor() {
         this.updates = 0;
     };
     Update() {
+        GPUAnimator.framesDelay = - (1 / (batteryUpdate.charge/20))
         /*
         this.updates++;
         this.updates = this.updates % 100;
@@ -23,6 +24,7 @@ let GPUUpdate = GPU.AddComponent(GPUclass);
 //let GPURenderer = GPU.AddComponent(Renderer);
 //GPURenderer.imageId = 'GPU';
 let GPUAnimator = GPU.AddComponent(Animator);
-GPUAnimator.stages = [{delay:0.5,length:4}];
+GPUAnimator.stages = [{delay:8,length:3}];
 GPUAnimator.image = "GPUImage";
 GPUAnimator.Play(0);
+
