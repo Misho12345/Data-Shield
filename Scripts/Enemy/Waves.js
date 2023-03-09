@@ -78,7 +78,7 @@ class Wave {
     }
 
     MakeEnemy(type) {
-        enemies.push(new enemyTypes[type]);
+        new enemyTypes[type];
     }
 
 }

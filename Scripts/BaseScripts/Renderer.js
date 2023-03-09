@@ -13,6 +13,12 @@ class Renderer {
     LateUpdate() {
         const centerPos = Vector2.Subtraction(this.transform.centerPos, screenOffset);
 
+        let a = Math.max(this.transform.scale.x, this.transform.scale.y);
+        if (centerPos.x + a < -canvas.width  / 2 ||
+            centerPos.x - a >  canvas.width  / 2 ||
+            centerPos.y + a < -canvas.height / 2 ||
+            centerPos.y - a >  canvas.height / 2) return;
+
         context.save();
 
         context.translate(this.transform.position.x, this.transform.position.y);

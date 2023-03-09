@@ -11,9 +11,11 @@ let shopMenu = document.getElementById("shop");
 
 function PausePlay() {
     if (shopOpened) {
-        shopOpened = true;
+        shopOpened = false;
         shopMenu.style.display = "none";
+        time = new Date();
         update();
+
         return;
     }
 
@@ -28,6 +30,25 @@ function PausePlay() {
 function resizePage() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
+    context.translate(canvas.width / 2, canvas.height / 2);
+
+    for (const gObj of gameObjects)
+        for (const component of gObj.components)
+            if (component instanceof Renderer && typeof component.EarlyUpdate !== "undefined")
+                component.EarlyUpdate()
+
+    for (const gObj of gameObjects)
+        for (const component of gObj.components)
+            if (component instanceof Renderer && typeof component.Update !== "undefined")
+                component.Update();
+
+    for (const gObj of gameObjects)
+        for (const component of gObj.components)
+            if (component instanceof Renderer && typeof component.LateUpdate !== "undefined")
+                component.LateUpdate();
+
+    context.translate(-canvas.width / 2, -canvas.height / 2);
 }
 
 function init() {
@@ -57,13 +78,6 @@ function areColliding(a, b) {
 }
 
 function update() {
-    for (let i = 0; i < enemies.length; i++) {
-        enemies[i].Update();
-        if (enemies[i].hp <= 0) {
-            enemies[i].Destroy();
-            enemies.splice(i,1);
-        }
-    }
     deltaTime = (new Date() - time) / 1000;
     time = new Date();
 

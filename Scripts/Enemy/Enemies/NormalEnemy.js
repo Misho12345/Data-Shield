@@ -8,6 +8,7 @@ class Virus extends Enemy {
         //this.position = new Vector2(randomInteger(memory) - memory / 2, randomInteger(memory) - memory / 2)
         this.dmg = waveN;
     }
+
     Update() {
         let vec = Vector2.Subtraction(this.transform.position, player.transform.position).normalized;
         vec.Scale(2);

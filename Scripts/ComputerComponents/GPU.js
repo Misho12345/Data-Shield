@@ -12,7 +12,7 @@ class GPUClass {
         }
 
         if (GPUAnimator.paused) GPUAnimator.Play();
-        // GPUAnimator.framesDelay = 1 / (10 + batteryUpdate.charge);
+        GPUAnimator.framesDelay = 1 / (10 + batteryUpdate.charge);
 
         /*
         this.updates++;
@@ -32,7 +32,7 @@ let GPUUpdate = GPU.AddComponent(GPUClass);
 //let GPURenderer = GPU.AddComponent(Renderer);
 //GPURenderer.imageId = 'GPU';
 let GPUAnimator = GPU.AddComponent(Animator);
-GPUAnimator.stages = [{delay: -300/*8*/, length: 3}];
+GPUAnimator.stages = [{delay: 8, length: 3}];
 GPUAnimator.image = "GPUImage";
 GPUAnimator.Play(0);
 

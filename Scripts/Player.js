@@ -30,10 +30,12 @@ class PlayerInput {
         input.AddAction("KeyD", undefined, _ => this.#velocity.x = 1, _ => this.#velocity.x = 0);
 
         input.AddAction("Space", _ => {
-            if (player.transform.position.DistanceFrom(new Vector2(760, -400)) < 500) {
+            if (this.inShopRange) {
                 shopOpened = true;
                 shopMenu.style.display = "flex";
-            } else this.Shoot();
+            }
+        }, _ => {
+            if (!this.inShopRange) this.Shoot();
         });
     }
 
@@ -46,6 +48,22 @@ class PlayerInput {
 
         if (Vector2.Subtraction(this.transform.position, screenOffset).magnitude >= this.#maxOffset)
             screenOffset.Add(this.#velocity);
+    }
+
+    LateUpdate() {
+        let dist = player.transform.position.DistanceFrom(new Vector2(760, -400)) / 500;
+        this.inShopRange = dist < 1;
+
+        if (this.inShopRange) {
+            let opacity = 1.2 - dist;
+            if (opacity > 0.8) opacity = 0.8;
+
+            context.fillStyle = `rgba(230, 230, 230, ${opacity})`;
+            context.font = "50px Orbitron";
+
+            let text = context.measureText("Press E to open the shop");
+            context.fillText("Press E to open the shop", 760 - screenOffset.x - text.width / 2, -600 - screenOffset.y);
+        }
     }
 
     Shoot() {
