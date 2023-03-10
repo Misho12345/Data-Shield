@@ -5,14 +5,27 @@ let isKeyPressed = {};
 let isKeyUp = {};
 
 let mousePos = new Vector2();
+let mouseClicked = false;
 
 window.addEventListener("mousemove", ev => {
-    mousePos.x = ev.x;
-    mousePos.y = ev.y;
+    let bounds = canvas.getBoundingClientRect();
+    let scaleX = canvas.width / bounds.width;
+    let scaleY = canvas.height / bounds.height;
+
+    mousePos.x = (ev.clientX - bounds.left) * scaleX - canvas.width / 2;
+    mousePos.y = (ev.clientY - bounds.top) * scaleY - canvas.height / 2;
 });
 
+function GetMousePos() {
+    return Vector2.Sum(mousePos, screenOffset);
+}
+
 window.addEventListener("mousedown", ev => {
-    weapon.Shoot();
+    mouseClicked = true;
+});
+
+window.addEventListener("mouseup", ev => {
+    mouseClicked = false;
 });
 
 window.addEventListener("keydown", key => {

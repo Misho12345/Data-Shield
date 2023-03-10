@@ -13,6 +13,8 @@ class Animator extends Renderer {
     stage;
     frame;
 
+    playOnce = false;
+
     Update() {
         if (this.#paused) return;
 
@@ -22,6 +24,11 @@ class Animator extends Renderer {
         }
 
         this.#cooldown = this.framesDelay;
+
+        if (!this.playAllFrames || this.playOnce && this.frame === this.#framesCount - 1) {
+            this.#paused = true;
+        }
+
         this.frame++;
 
         if (this.frame >= this.#framesCount)
@@ -47,7 +54,8 @@ class Animator extends Renderer {
             image.naturalHeight / this.#stages.length);
     }
 
-    Play(stage) {
+    Play(stage, playAllFrames=true) {
+        this.playAllFrames = playAllFrames;
         this.#paused = false;
 
         if (typeof stage === "undefined")

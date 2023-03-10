@@ -14,13 +14,13 @@
             <div class="side-list ui" style="top: 0; right: 0;">
                 <div class="center flex-dir-column">
                     <div class="center flex-dir-row side-list-el">
-                        <img class="icon" src="Images/UI/coin.gif" alt="coin" />
-                        <span id="coins" class="side-list-el-v">100</span>
+                        <img class="icon" src="Images/UI/coin.gif" alt="" />
+                        <span id="zoins" class="side-list-el-v">100</span>
                     </div>
 
                     <div class="center flex-dir-row side-list-el">
-                        <img class="icon" src="Images/UI/bitcoin.png" alt="bitcoin" />
-                        <span class="side-list-el-v">100</span>
+                        <img class="icon" src="Images/UI/bitcoin.png" alt="" />
+                        <span id="parichki" class="side-list-el-v">100</span>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
             </div>
 
             <div id="weapon" class="ui center circle flex-dir-column">
-                <img style="width: 70%; transform: rotate(-10deg);" src="Images/pistol.png" alt="" />
+                <img id="weapon-img" style="width: 70%; transform: rotate(-10deg);" src="Images/UI/magnum.png" alt="" />
                 <div style="margin: 4% 0 -8% 20%"><span id="weapon-curr-ammo">5</span> / <span id="weapon-max-ammo">12</span></div>
             </div>
 
@@ -69,13 +69,142 @@
                 <div id="text-under-progress-bar"></div>
             </div>
 
-            <div id="pause-menu" class="ui full-fill center flex-dir-column" style="display: none">
+            <div id="pause-menu" class="ui full-fill center flex-dir-column">
                 <div id="pause-menu-header">Paused</div>
                 <div class="pause-menu-option" onclick="PausePlay()">Resume</div>
-                <div class="pause-menu-option">Neshto</div>
+                <div class="pause-menu-option">Nishto</div>
             </div>
 
-            <div id="shop" class="ui full-fill" style="display: none; background: #0005"></div>
+            <div id="shop" class="ui full-fill">
+                <div id="shop-border" class="ui center flex-dir-row">
+                    <div class="shop-column">
+                        <div class="column-title center">Weapons</div>
+                        <div class="column-content">
+                            <div class="shop-item">
+                                <div class="item-image center flex-dir-column">
+                                    <div class="center">
+                                        <img src="Images/UI/magnum.png" alt="">
+                                    </div>
+                                    <span class="center">Magnum</span>
+                                </div>
+
+                                <div class="item-price center flex-dir-row">
+                                    <div>69</div>
+                                    <img src="Images/UI/coin.gif" alt="">
+                                </div>
+                            </div>
+
+                            <div class="shop-item">
+                                <div class="item-image center flex-dir-column">
+                                    <div class="center">
+                                        <img src="Images/UI/laser.png" alt="">
+                                    </div>
+                                    <span class="center">Laser</span>
+                                </div>
+
+                                <div class="item-price center flex-dir-row">
+                                    <div>69</div>
+                                    <img src="Images/UI/coin.gif" alt="">
+                                </div>
+                            </div>
+
+                            <div class="shop-item">
+                                <div class="item-image center flex-dir-column">
+                                    <div class="center">
+                                        <img src="Images/Weapons/bananarang.png" alt="">
+                                    </div>
+                                    <span class="center">Bananarang</span>
+                                </div>
+
+                                <div class="item-price center flex-dir-row">
+                                    <div>69</div>
+                                    <img src="Images/UI/coin.gif" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="shop-column" >
+                        <div class="column-title">Upgrade Hardware</div>
+                        <div class="column-content">
+                            <div class="shop-item">
+                                <div class="item-image center flex-dir-column">
+                                    <div class="center">
+                                        <img src="Images/UI/CPU.png" alt="">
+                                    </div>
+                                    <span class="center">CPU</span>
+                                </div>
+
+                                <div class="item-price center flex-dir-row">
+                                    <div>69</div>
+                                    <img src="Images/UI/coin.gif" alt="">
+                                </div>
+                            </div>
+
+                            <div class="shop-item">
+                                <div class="item-image center flex-dir-column">
+                                    <div class="center">
+                                        <img src="Images/UI/GPU.png" alt="">
+                                    </div>
+                                    <span class="center">GPU</span>
+                                </div>
+
+                                <div class="item-price center flex-dir-row">
+                                    <div>69</div>
+                                    <img src="Images/UI/coin.gif" alt="">
+                                </div>
+                            </div>
+
+                            <div class="shop-item">
+                                <div class="item-image center flex-dir-column">
+                                    <div class="center">
+                                        <img src="Images/UI/Battery.png" alt="">
+                                    </div>
+                                    <span class="center">Battery</span>
+                                </div>
+
+                                <div class="item-price center flex-dir-row">
+                                    <div>69</div>
+                                    <img src="Images/UI/coin.gif" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="shop-column">
+                        <div class="column-title center">Other</div>
+                        <div class="column-content">
+                            <div class="shop-item">
+                                <div class="item-image center flex-dir-column">
+                                    <div class="center">
+                                        <img src="Images/UI/energy.png" alt="">
+                                    </div>
+                                    <span class="center">Toci</span>
+                                </div>
+
+                                <div class="item-price center flex-dir-row">
+                                    <div>69</div>
+                                    <img src="Images/UI/coin.gif" alt="">
+                                </div>
+                            </div>
+
+                            <div class="shop-item">
+                                <div class="item-image center flex-dir-column">
+                                    <div class="center">
+                                        <img src="Images/UI/energy.png" alt="">
+                                    </div>
+                                    <span class="center">Zhivot</span>
+                                </div>
+
+                                <div class="item-price center flex-dir-row">
+                                    <div>69</div>
+                                    <img src="Images/UI/coin.gif" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     <div style="display: none">
@@ -85,15 +214,19 @@
         <img src="Images/Enemies/Virus/Virus.png" id="VirusImage" alt="" />
         <img src="Images/motherboard.png" id="motherboard" alt="" />
 
-        <img src="Images/magnum.png" id="magnum" alt="" />
-        <img src="Images/magnumBullet.png" id="magnumBullet" alt="" />
+        <img src="Images/Weapons/magnum.png" id="magnum" alt="" />
+        <img src="Images/Weapons/magnumBullet.png" id="magnumBullet" alt="" />
+
+        <img src="Images/Weapons/laser.png" id="laser" alt="" />
+        <img src="Images/Weapons/laserProj.png" id="laserProj" alt="" />
+
         <img src="Images/player.png" id="player" alt="" />
 
         <img src="Images/folder.png" id="folderImage" alt="" />
         <img src="Images/antivirus.png" id="antivirusImage" alt="" />
-        <img src="Images/wifiatack.png" id="wifiatackImage" alt="" />
+        <img src="Images/wifiatack.png" id="wifiattackImage" alt="" />
 
-        <img src="Images/firewall.png" id="firewall" alt="" />
+        <img src="Images/Weapons/firewall.png" id="firewall" alt="" />
     </div>
 
         <script src="Scripts/BaseScripts/Vector2.js"></script>
@@ -108,6 +241,7 @@
         <script src="Scripts/ComputerComponents/GPU.js"></script>
         <script src="Scripts/ComputerComponents/CPU.js"></script>
         <script src="Scripts/ComputerComponents/Antivirus.js"></script>
+        <script src="Scripts/ComputerComponents/Folder.js   "></script>
 
         <script src="Scripts/Enemy/Enemies/Enemy.js"></script>
         <script src="Scripts/Enemy/Enemies/Virus.js"></script>

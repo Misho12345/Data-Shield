@@ -27,33 +27,8 @@ function PausePlay() {
     } else pauseMenu.style.display = "flex";
 }
 
-function resizePage() {
-
-    canvas.width = 1920;
-    canvas.height = 1080;
-    //canvas.width = window.innerWidth;
-    //canvas.height = window.innerHeight;
-
-    //context.translate(canvas.width / 2, canvas.height / 2);
-
-    //for (const gObj of gameObjects)
-    //    for (const component of gObj.components)
-    //        if (component instanceof Renderer && typeof component.EarlyUpdate !== "undefined")
-    //            component.EarlyUpdate()
-
-    //for (const gObj of gameObjects)
-    //    for (const component of gObj.components)
-    //        if (component instanceof Renderer && typeof component.Update !== "undefined")
-    //            component.Update();
-
-    //for (const gObj of gameObjects)
-    //    for (const component of gObj.components)
-    //        if (component instanceof Renderer && typeof component.LateUpdate !== "undefined")
-    //            component.LateUpdate();
-
-    //context.translate(-canvas.width / 2, -canvas.height / 2);
-}
-
+canvas.width = 1920;
+canvas.height = 1080;
 
 function StartAnimation(idx, text) {
     let el = document.getElementById("animation" + idx);
@@ -80,10 +55,7 @@ function StartAnimation(idx, text) {
 }
 
 function init() {
-    resizePage();
     time = new Date();
-
-    window.onresize = resizePage;
 
     let shopItems = document.getElementsByClassName("shop-item");
 
