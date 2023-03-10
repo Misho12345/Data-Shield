@@ -28,27 +28,30 @@ function PausePlay() {
 }
 
 function resizePage() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
 
-    context.translate(canvas.width / 2, canvas.height / 2);
+    canvas.width = 1920;
+    canvas.height = 1080;
+    //canvas.width = window.innerWidth;
+    //canvas.height = window.innerHeight;
 
-    for (const gObj of gameObjects)
-        for (const component of gObj.components)
-            if (component instanceof Renderer && typeof component.EarlyUpdate !== "undefined")
-                component.EarlyUpdate()
+    //context.translate(canvas.width / 2, canvas.height / 2);
 
-    for (const gObj of gameObjects)
-        for (const component of gObj.components)
-            if (component instanceof Renderer && typeof component.Update !== "undefined")
-                component.Update();
+    //for (const gObj of gameObjects)
+    //    for (const component of gObj.components)
+    //        if (component instanceof Renderer && typeof component.EarlyUpdate !== "undefined")
+    //            component.EarlyUpdate()
 
-    for (const gObj of gameObjects)
-        for (const component of gObj.components)
-            if (component instanceof Renderer && typeof component.LateUpdate !== "undefined")
-                component.LateUpdate();
+    //for (const gObj of gameObjects)
+    //    for (const component of gObj.components)
+    //        if (component instanceof Renderer && typeof component.Update !== "undefined")
+    //            component.Update();
 
-    context.translate(-canvas.width / 2, -canvas.height / 2);
+    //for (const gObj of gameObjects)
+    //    for (const component of gObj.components)
+    //        if (component instanceof Renderer && typeof component.LateUpdate !== "undefined")
+    //            component.LateUpdate();
+
+    //context.translate(-canvas.width / 2, -canvas.height / 2);
 }
 
 function init() {
@@ -70,14 +73,36 @@ function init() {
     update();
 }
 
+function areCollidingEnemies(a, b) {
+    return (b.position.x <= a.position.x + a.scale.x/2 &&
+        a.position.x <= b.position.x + b.scale.x/2 &&
+        b.position.y <= a.position.y + a.scale.y/2 &&
+        a.position.y <= b.position.y + b.scale.y/2)
+}
 function areColliding(a, b) {
-    return (b.position.x <= a.position.x + a.scale.x &&
+    return (b.position.x <= a.position.x + a.scale.x  &&
         a.position.x <= b.position.x + b.scale.x &&
         b.position.y <= a.position.y + a.scale.y &&
         a.position.y <= b.position.y + b.scale.y)
 }
 
+function endOfWave() {
+    folders.push(new Folder());
+    playerInput.parichki = playerInput.parichki + GPUUpdate.parichkiPerWave;
+}
+let enemies = [];
+let enemyCount = enemies.length;
 function update() {
+    for (let i = 0; i < folders.length; i++) {
+        if (folders[i].hp <= 0) {
+            folders[i].animator.stage = 1;
+        }
+    }
+    if (enemyCount >= 1 && enemies.length <= 0) {
+        endOfWave();
+    }
+    enemyCount = enemies.length;
+
     deltaTime = (new Date() - time) / 1000;
     time = new Date();
 
@@ -87,6 +112,8 @@ function update() {
 
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.translate(canvas.width / 2, canvas.height / 2);
+
+    //context.scale(0.1, 0.1);
 
     for (const gObj of gameObjects)
         for (const component of gObj.components)
@@ -102,14 +129,14 @@ function update() {
         for (const component of gObj.components)
             if (typeof component.LateUpdate !== "undefined")
                 component.LateUpdate();
-
+    //context.scale(10, 10);
     context.translate(-canvas.width / 2, -canvas.height / 2);
 
     setTimeout(update, 10);
 }
 
 let memory = 5120;
-
+let turets = [];
 let motherboard = new GameObject(Vector2.zero, new Vector2(memory));
 let motherboardARenderer = motherboard.AddComponent(Renderer);
 motherboardARenderer.imageId = "motherboard";

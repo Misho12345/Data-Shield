@@ -32,13 +32,18 @@ function randomInteger(x) {
 class Wave {
     timeToNextWave = 30;
     timeToNextWaveMax = 30;
-
+    constructor() {
+        input.AddAction("Enter", _ => {
+            if (!((this.updates < this.TimeInSeconds * 100) || (this.updates > this.TimeInSeconds * 100 && enemies.length > 0)))
+                this.timeToNextWave = -1
+        }, undefined, undefined);
+    }
     makeWave(stage, TimeInSeconds, isItBoss) {
         this.stage = stage;
         this.TimeInSeconds = TimeInSeconds;
         this.isItBoss = isItBoss;
         this.updates = 0;
-        this.enemyCount = fibonacci(stage + 1);
+        this.enemyCount = fibonacci(stage);
         this.enemyCD = Math.floor(TimeInSeconds * 100 / this.enemyCount);
         this.timeToNextWave = 15 + currentWave * 3;
         this.timeToNextWaveMax = 15 + currentWave * 3;
@@ -47,23 +52,30 @@ class Wave {
     }
 
     Update() {
-        input.AddAction("Enter", _ => this.timeToNextWave = -1, undefined, undefined);
+        
         this.updates++;
 
         //console.log(this.updates);
         if (this.timeToNextWave < 0) {
-            this.makeWave(currentWave, currentWave * 3, false);
+            this.makeWave(currentWave, currentWave , false);
         }
         if (this.updates > this.TimeInSeconds * 100 && enemies.length > 0) {
             barLen.style.width = enemies.length / this.enemyCount * 100 + '%';
             barText.innerText = 'Enemies left: ' + enemies.length;
+
+            //input.RemoveAction("Enter");
         } else {
             barLen.style.width = this.timeToNextWave / this.timeToNextWaveMax * 100 + '%';
             barText.innerText = `Next wave in ${Math.round(this.timeToNextWave)}s`;
+
+            //folders.push(new Folder());
+            
         }
         if (this.updates < this.TimeInSeconds * 100) {
             barLen.style.width = (this.updates / (this.TimeInSeconds * 100)) * 100 + '%';
-            barText.innerText = 'pechem enemita v momenta';
+            barText.innerText = 'GET READY!';
+            
+            //input.RemoveAction("Enter");
         }
         if (this.updates % this.enemyCD === 0 && this.updates < this.TimeInSeconds * 100) {
             //console.log("dsa323232dsa");

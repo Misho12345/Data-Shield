@@ -21,9 +21,9 @@ class Renderer {
 
         context.save();
 
-        context.translate(this.transform.position.x, this.transform.position.y);
+        context.translate(this.transform.position.x - screenOffset.x, this.transform.position.y - screenOffset.y);
         context.rotate(this.transform.rotation);
-        context.translate(-this.transform.position.x, -this.transform.position.y);
+        context.translate(-this.transform.position.x + screenOffset.x, -this.transform.position.y + screenOffset.y);
 
         let image = document.getElementById(this.imageId)
         if (image !== null) {
@@ -37,7 +37,11 @@ class Renderer {
             context.fillStyle = this.color;
             context.fillRect(centerPos.x, centerPos.y, this.transform.scale.x, this.transform.scale.y);
         }
-
+        //console.log(this.Draw);
+        if (typeof this.Draw != 'undefined') {
+            
+            this.Draw();
+        }
         context.restore();
     }
 }
