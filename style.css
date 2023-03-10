@@ -8,6 +8,12 @@
 
     --dark-bg: #0007;
 }
+html {
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    zoom: 1;
+}
 
 .full-fill {
     width: 100%;

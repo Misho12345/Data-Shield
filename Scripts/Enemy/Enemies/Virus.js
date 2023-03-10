@@ -11,30 +11,36 @@ class Virus extends Enemy {
     }
 
     Update() {
-        let vec = Vector2.Subtraction(this.transform.position, player.transform.position).normalized;
-        vec.Scale(2);
-        this.transform.position.Subtract(vec);
+        
 
+        
+
+        if (this.transform.position.DistanceFrom(player.transform.position) < 150 && this.zahapahCD < 0) {
+            this.animator.stage = 1;
+            
+            this.zahapahCD = 300;
+            //this.hp=-1;
+        } else if (this.zahapahCD<150) {
+            
+            this.animator.stage = 0;
+        }
+        if (this.transform.position.DistanceFrom(player.transform.position) > 80) {
+            let vec = Vector2.Subtraction(this.transform.position, player.transform.position).normalized;
+            vec.Scale(2);
+            this.transform.position.Subtract(vec);
+
+        }
         for (let i = 0; i < enemies.length; i++) {
             if (!enemies[i].transform.position.Equals(this.transform.position.y)) {
-                if (areColliding(this.transform, enemies[i].transform)) {
-                    vec = Vector2.Subtraction(this.transform.position, enemies[i].transform.position).normalized;
-                    vec.Scale(3);
-                    this.transform.position.Add(vec);
+
+                if (areCollidingEnemies(this.transform, enemies[i].transform)) {
+                    let vec2 = Vector2.Subtraction(this.transform.position, enemies[i].transform.position).normalized;
+                    vec2.Scale(3);
+                    this.transform.position.Add(vec2);
 
                     break;
                 }
             }
-        }
-
-        if (this.transform.position.DistanceFrom(player.transform.position) < 50 && this.zahapahCD < 0) {
-            this.animator.stage = 1;
-            // player.hp--;
-            this.zahapahCD = 500;
-            //this.hp=-1;
-        } else if (this.zahapahCD<350) {
-            
-            this.animator.stage = 0;
         }
         this.zahapahCD--;
     }

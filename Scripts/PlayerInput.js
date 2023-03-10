@@ -4,26 +4,36 @@ let screenOffset = new Vector2();
 
 class PlayerInput {
     #velocity = new Vector2();
-    #coins;
-    
-    speed = 5;
-    lookingDir = 1;
+    #zoins;
+    #parichki;
+
+    speed = 40;
     hp = 10;
 
     #maxOffset = 100;
     coinsElement = document.getElementById('coins');
+    parichkiElement = document.getElementById('parichki');
 
-    set coins(v) {
-        this.#coins = v;
+    set parichki(v) {
+        this.#parichki = v;
+        this.parichkiElement.innerText = v;
+    }
+
+    get parichki() {
+        return this.#parichki;
+    }
+    set zoins(v) {
+        this.#zoins = v;
         this.coinsElement.innerText = v;
     }
 
-    get coins() {
-        return this.#coins;
+    get zoins() {
+        return this.#zoins;
     }
 
     Awake() {
-        this.coins = 0;
+        this.zoins = 0;
+        this.parichki = 0;
 
         input.AddAction("KeyW", undefined, _ => this.#velocity.y = -1, _ => this.#velocity.y = 0);
         input.AddAction("KeyA", undefined, _ => this.#velocity.x = -1, _ => this.#velocity.x = 0);
