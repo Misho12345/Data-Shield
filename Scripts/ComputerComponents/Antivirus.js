@@ -51,12 +51,14 @@ class Turet extends GameObject {
             //}
             for (let i = 0; i < enemies.length; i++) {
                 //console.log("asd"); 
-                if (this.transform.position.DistanceFrom(enemies[i].transform.position) < 2000 && this.updates%100==0) {
+                if (this.transform.position.DistanceFrom(enemies[i].transform.position) < 2000 && this.updates%200==0) {
                     // console.log("dsadsa");
+                    batteryUpdate.charge -= 10;
                     wifiBullets.push(new wifiBullet(
                         this.transform.position.x,
                         this.transform.position.y,
-                        enemies[i]) );
+                        enemies[i]));
+                    return;
                 }
             }
         }
