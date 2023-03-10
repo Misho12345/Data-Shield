@@ -8,16 +8,17 @@ class Enemy extends GameObject {
         this.imageID = imageID;
         this.typeEnemy = typeEnemy;
 
-        this.idx = enemies.length;
+        this.enemyIdx = enemies.length;
         enemies.push(this);
 
         this.transform.Update = () => {
             if (typeof this.Update !== "undefined") this.Update();
 
             if (this.hp <= 0) {
-                enemies.splice(this.idx,1);
-                for (let i = this.idx; i < enemies.length; i++) {
-                    enemies[i].idx = i;
+                console.log(this)
+                enemies.splice(this.enemyIdx,1);
+                for (let i = this.enemyIdx; i < enemies.length; i++) {
+                    enemies[i].enemyIdx = i;
                 }
 
                 this.Destroy();

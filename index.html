@@ -54,7 +54,7 @@
             </div>
 
             <div id="weapon" class="ui center circle flex-dir-column">
-                <img style="width: 70%; transform: rotate(-10deg);" src="Images/pistol.png" alt="" />
+                <img style="width: 70%; transform: rotate(-10deg);" src="Images/magnum.png" alt="" />
                 <div style="margin: 4% 0 -8% 20%"><span id="weapon-curr-ammo">5</span> / <span id="weapon-max-ammo">12</span></div>
             </div>
 
@@ -69,13 +69,100 @@
                 <div id="text-under-progress-bar"></div>
             </div>
 
-            <div id="pause-menu" class="ui full-fill center flex-dir-column" style="display: none">
+            <div id="pause-menu" class="ui full-fill center flex-dir-column">
                 <div id="pause-menu-header">Paused</div>
                 <div class="pause-menu-option" onclick="PausePlay()">Resume</div>
                 <div class="pause-menu-option">Neshto</div>
             </div>
 
-            <div id="shop" class="ui full-fill" style="display: none; background: #0005"></div>
+            <div id="shop" class="ui full-fill">
+                <div id="shop-border" class="ui center flex-dir-row">
+                    <div class="shop-column">
+                        <div class="column-title">Weapons</div>
+                        <div class="column-content">
+                            <div class="shop-item">
+                                <div class="item-image center flex-dir-column">
+                                    <div class="center">
+                                        <img src="Images/pistol.png" alt="">
+                                    </div>
+                                    <span class="center">Pushka</span>
+                                </div>
+
+                                <div class="item-price center flex-dir-row">
+                                    <div>69</div>
+                                    <img src="Images/UI/coin.gif" alt="">
+                                </div>
+                            </div>
+
+                            <div class="shop-item">
+                                <div class="item-image center flex-dir-column">
+                                    <div class="center">
+                                        <img src="Images/pistol.png" alt="">
+                                    </div>
+                                    <span class="center">Pushka</span>
+                                </div>
+
+                                <div class="item-price center flex-dir-row">
+                                    <div>69</div>
+                                    <img src="Images/UI/coin.gif" alt="">
+                                </div>
+                            </div>
+
+                            <div class="shop-item">
+                                <div class="item-image center flex-dir-column">
+                                    <div class="center">
+                                        <img src="Images/pistol.png" alt="">
+                                    </div>
+                                    <span class="center">Pushka</span>
+                                </div>
+
+                                <div class="item-price center flex-dir-row">
+                                    <div>69</div>
+                                    <img src="Images/UI/coin.gif" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="shop-column" >
+                        <div class="column-title">Hardware</div>
+                        <div class="column-content">
+                            <div class="shop-item">
+                                <div class="item-image center flex-dir-column">
+                                    <div class="center">
+                                        <img src="Images/pistol.png" alt="">
+                                    </div>
+                                    <span class="center">Pushka</span>
+                                </div>
+
+                                <div class="item-price center flex-dir-row">
+                                    <div>69</div>
+                                    <img src="Images/UI/coin.gif" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="shop-column">
+                        <div class="column-title">Other</div>
+                        <div class="column-content">
+                            <div class="shop-item">
+                                <div class="item-image center flex-dir-column">
+                                    <div class="center">
+                                        <img src="Images/pistol.png" alt="">
+                                    </div>
+                                    <span class="center">Pushka</span>
+                                </div>
+
+                                <div class="item-price center flex-dir-row">
+                                    <div>69</div>
+                                    <img src="Images/UI/coin.gif" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div style="display: none">
@@ -84,6 +171,10 @@
             <img src="Images/CPU.png" id="CPUImage" alt="" />
             <img src="Images/Enemies/Virus/Virus.png" id="VirusImage" alt="" />
             <img src="Images/motherboard.png" id="motherboard" alt="" />
+
+            <img src="Images/magnum.png" id="magnum" alt="" />
+            <img src="Images/magnumBullet.png" id="magnumBullet" alt="" />
+            <img src="Images/player.png" id="player" alt="" />
 
             <img src="Images/firewall.png" id="firewall" alt="" />
         </div>
@@ -106,6 +197,7 @@
 
         <script src="Scripts/Enemy/Waves.js"></script>
 
+        <script src="Scripts/Weapon.js"></script>
         <script src="Scripts/PlayerInput.js"></script>
     </body>
 </html>

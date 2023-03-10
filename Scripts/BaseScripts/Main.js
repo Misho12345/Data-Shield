@@ -51,11 +51,49 @@ function resizePage() {
     context.translate(-canvas.width / 2, -canvas.height / 2);
 }
 
+
+function StartAnimation(idx, text) {
+    let el = document.getElementById("animation" + idx);
+    el.innerText = text;
+    el.className = "animation"
+
+    el.innerText = text;
+
+    let number = +text;
+    if (isNaN(number) || number === 0) {
+        el.style.color = "gray";
+        el.innerText = "+" + number;
+    }
+    else if (number > 0) {
+        el.style.color = "green";
+        el.innerText = "+" + number;
+    }
+    else el.style.color = "red";
+
+    el.addEventListener("animationend", _ => {
+        el.classList.remove("animation");
+        el.innerText = "";
+    });
+}
+
 function init() {
     resizePage();
     time = new Date();
 
     window.onresize = resizePage;
+
+    let shopItems = document.getElementsByClassName("shop-item");
+
+    for (let i = 0 ; i < shopItems.length; i++) {
+        shopItems[i].addEventListener("click", () => {
+            shopItems[i].classList.add('animate-green-filter');
+            console.log("in")
+        });
+        shopItems[i].addEventListener("animationend", () => {
+            shopItems[i].classList.remove('animate-green-filter');
+            console.log("out")
+        });
+    }
 
     for (const gObj of gameObjects)
         for (const component of gObj.components)

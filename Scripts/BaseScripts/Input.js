@@ -4,6 +4,16 @@ let isKeyDown = {};
 let isKeyPressed = {};
 let isKeyUp = {};
 
+let mousePos = new Vector2();
+
+window.addEventListener("mousemove", ev => {
+    mousePos.x = ev.x;
+    mousePos.y = ev.y;
+});
+
+window.addEventListener("mousedown", ev => {
+    weapon.Shoot();
+});
 
 window.addEventListener("keydown", key => {
     isKeyDown[key.code] = !isKeyPressed[key.code];
@@ -106,7 +116,6 @@ class Input {
         if (typeof foundIdx !== "undefined") {
             this.actions.splice(foundIdx);
             this.UpdateActions(foundIdx);
-
         }
     }
 }

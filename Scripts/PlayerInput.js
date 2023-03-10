@@ -6,7 +6,8 @@ class PlayerInput {
     #velocity = new Vector2();
     #coins;
     
-    speed = 8;
+    speed = 5;
+    lookingDir = 1;
     hp = 10;
 
     #maxOffset = 100;
@@ -35,12 +36,13 @@ class PlayerInput {
                 shopMenu.style.display = "flex";
             }
         });
-
-        input.AddAction("Space", undefined, _ => this.Shoot());
     }
 
     Update() {
         if (this.#velocity.Equals(Vector2.zero)) return;
+
+        if (playerAnimator.paused) playerAnimator.Play();
+        // playerAnimator.stage = this.lookingDir;
 
         this.#velocity.Normalize();
         this.#velocity.Scale(this.speed * deltaTime * 100);
@@ -65,36 +67,19 @@ class PlayerInput {
             context.fillText("Press E to open the shop", 760 - screenOffset.x - text.width / 2, -600 - screenOffset.y);
         }
     }
-
-    Shoot() {
-        console.log("pow");
-    }
-}
-
-function StartAnimation(idx, text) {
-    let el = document.getElementById("animation" + idx);
-    el.innerText = text;
-    el.className = "animation"
-
-    el.innerText = text;
-
-    let number = +text;
-    if (isNaN(number) || number === 0) {
-        el.style.color = "gray";
-        el.innerText = "+" + number;
-    }
-    else if (number > 0) {
-        el.style.color = "green";
-        el.innerText = "+" + number;
-    }
-    else el.style.color = "red";
-
-    el.addEventListener("animationend", _ => {
-        el.classList.remove("animation");
-        el.innerText = "";
-    });
 }
 
 let player = new GameObject(Vector2.zero, new Vector2(100));
-player.AddComponent(Renderer).color = "red";
+let playerAnimator = player.AddComponent(Animator);
+
+playerAnimator.stages = [
+    {delay: 0.15, length: 4}
+];
+playerAnimator.image = "player";
+playerAnimator.Play(0);
+
 player.AddComponent(PlayerInput);
+
+let weapon = new Weapon(
+    new Vector2(0, 0), new Vector2(0, 0), new Vector2(320, 95), player.transform, "magnum", [{delay: 0.05, length: 4}],
+    new Vector2(20), "magnumBullet", [{delay: 0.03, length: 5}]);

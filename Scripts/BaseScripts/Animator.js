@@ -28,7 +28,6 @@ class Animator extends Renderer {
             this.frame = 0;
 
         this.offset.Set(this.size.x * this.frame, this.size.y * this.stage + 1);
-        super.LateUpdate()
     }
 
     set stages(v) {
