@@ -1,6 +1,6 @@
 "use strict";
 
-class Worm {}
+
 class TrojanHorse {}
 class Bugs {}
 class NormalEnemy {}
@@ -79,7 +79,7 @@ class Wave {
         }
         if (this.updates % this.enemyCD === 0 && this.updates < this.TimeInSeconds * 100) {
             //console.log("dsa323232dsa");
-            this.MakeEnemy(4);
+            this.MakeEnemy(0);
             //this.MakeEnemy(randomInteger(enemyTypes.length));
         } else if (!(this.updates < this.TimeInSeconds * 100) && enemies.length === 0) {
             //console.log("dsadsa");

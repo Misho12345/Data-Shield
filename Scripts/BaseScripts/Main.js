@@ -103,6 +103,7 @@ function endOfWave() {
 let enemies = [];
 let enemyCount = enemies.length;
 function update() {
+    console.log(playerInput.hp)
     for (let i = 0; i < folders.length; i++) {
         if (folders[i].hp <= 0) {
             folders[i].animator.stage = 1;

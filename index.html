@@ -3,8 +3,9 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Sample Page</title>
+        <title>Data Shield</title>
 
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
         <link rel="stylesheet" href="style.css">
     </head>
     <body onload="init()" class="full-fill">
@@ -58,7 +59,7 @@
                 <div style="margin: 4% 0 -8% 20%"><span id="weapon-curr-ammo">5</span> / <span id="weapon-max-ammo">12</span></div>
             </div>
 
-            <img id="pause-button" class="ui" onclick="PausePlay()" style="cursor: pointer" src="Images/UI/pause.png" alt="pause button" />
+            <img id="pause-button" class="ui" onclick="PausePlay()" src="Images/UI/pause.png" alt="pause button" />
 
             <img id="ui-battery" class="ui" src="Images/UI/Battery/battery0.png" alt="UI battery img" />
 
@@ -207,27 +208,29 @@
             </div>
         </div>
 
-    <div style="display: none">
-        <img src="Images/battery.png" id="batteryImage" alt="" />
-        <img src="Images/GPU.png" id="GPUImage" alt="" />
-        <img src="Images/CPU.png" id="CPUImage" alt="" />
-        <img src="Images/Enemies/Virus/Virus.png" id="VirusImage" alt="" />
-        <img src="Images/motherboard.png" id="motherboard" alt="" />
+        <div style="display: none">
+            <img src="Images/battery.png" id="batteryImage" alt="" />
+            <img src="Images/GPU.png" id="GPUImage" alt="" />
+            <img src="Images/CPU.png" id="CPUImage" alt="" />
+            <img src="Images/Enemies/Virus/Virus.png" id="VirusImage" alt="" />
+            <img src="Images/Enemies/wormHead.png" id="wormHeadImage" alt="" />
+            <img src="Images/Enemies/wormTale.png" id="wormTaleImage" alt="" />
+            <img src="Images/motherboard.png" id="motherboard" alt="" />
 
-        <img src="Images/Weapons/magnum.png" id="magnum" alt="" />
-        <img src="Images/Weapons/magnumBullet.png" id="magnumBullet" alt="" />
+            <img src="Images/Weapons/magnum.png" id="magnum" alt="" />
+            <img src="Images/Weapons/magnumBullet.png" id="magnumBullet" alt="" />
 
-        <img src="Images/Weapons/laser.png" id="laser" alt="" />
-        <img src="Images/Weapons/laserProj.png" id="laserProj" alt="" />
+            <img src="Images/Weapons/laser.png" id="laser" alt="" />
+            <img src="Images/Weapons/laserProj.png" id="laserProj" alt="" />
 
-        <img src="Images/player.png" id="player" alt="" />
+            <img src="Images/player.png" id="player" alt="" />
 
-        <img src="Images/folder.png" id="folderImage" alt="" />
-        <img src="Images/antivirus.png" id="antivirusImage" alt="" />
-        <img src="Images/wifiatack.png" id="wifiattackImage" alt="" />
+            <img src="Images/folder.png" id="folderImage" alt="" />
+            <img src="Images/antivirus.png" id="antivirusImage" alt="" />
+            <img src="Images/wifiatack.png" id="wifiattackImage" alt="" />
 
-        <img src="Images/Weapons/firewall.png" id="firewall" alt="" />
-    </div>
+            <img src="Images/Weapons/firewall.png" id="firewall" alt="" />
+        </div>
 
         <script src="Scripts/BaseScripts/Vector2.js"></script>
         <script src="Scripts/BaseScripts/Transform.js"></script>
@@ -245,6 +248,9 @@
 
         <script src="Scripts/Enemy/Enemies/Enemy.js"></script>
         <script src="Scripts/Enemy/Enemies/Virus.js"></script>
+    <script src="Scripts/Enemy/Enemies/Enemy.js"></script>
+    <script src="Scripts/Enemy/Enemies/Virus.js"></script>
+    <script src="Scripts/Enemy/Enemies/Worm.js"></script>
 
         <script src="Scripts/Enemy/Waves.js"></script>
 
