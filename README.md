@@ -14,10 +14,10 @@ DataShielD е нашата нова игра, в която предпазваш
 Можете да играете играта ни напълно безплатно на сайта ни -> [tonka.pro/DataShielD](https://tonka.pro/DataShielD)
 ### Authors
 
-- [Антон Христов](https://www.github.com/) - Game dev
-- [Михаил Георгиев](https://www.github.com/) - Game dev
-- [Стилян Иванов](https://www.github.com/) - Stylist and game artist
-- [Стоян Иванов](https://www.github.com/) - Stylist and game artist
+- [Антон Христов](https://www.github.com/DebelToni) - Game dev
+- [Михаил Георгиев](https://www.github.com/Misho12345) - Game dev
+- [Стилян Иванов](https://www.github.com/StilyanI) - Stylist and game artist
+- [Стоян Иванов](https://www.github.com/ToonLoL) - Stylist and game artist
 
 
 ### Използвани технологии:
