@@ -5,7 +5,7 @@ let GPU = new GameObject(new Vector2(-180, -435), new Vector2(350, 192));
 class GPUClass {
     updates = 0;
     zoinsPerWave = 3;
-    capacity = 0.003;
+    capacity = 0.01;
 
     Update() {
         if (batteryUpdate.charge <= 0) {

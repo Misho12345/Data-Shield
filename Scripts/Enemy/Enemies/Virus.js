@@ -2,7 +2,7 @@
 
 class Virus extends Enemy {
     constructor(waveN) {
-        super('VirusImage', 1, randomInteger(memory) - memory / 2, randomInteger(2) * memory - memory / 2,150,150,0);
+        super('VirusImage', 1, randomInteger(memory) - memory / 2, randomInteger(2) * memory - memory / 2,150,150,0,4,3);
         //this.position = new Vector2(randomInteger(memory) - memory / 2, randomInteger(memory) - memory / 2)
         this.position = new Vector2(0, 0);
         this.dmg = waveN;

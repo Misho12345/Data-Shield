@@ -1,8 +1,8 @@
 "use strict";
 
 
-class TrojanHorse {}
-class Bugs {}
+
+
 class NormalEnemy {}
 
 let barText = document.getElementById("text-under-progress-bar");
@@ -22,7 +22,7 @@ function fibonacci(x) {
 }
 
 
-let enemyTypes = [Worm, TrojanHorse, Bugs, NormalEnemy, Virus];
+let enemyTypes = [Worm, Kon, Bug, Virus];
 let currentWave = 1;
 
 function randomInteger(x) {
@@ -79,8 +79,9 @@ class Wave {
         }
         if (this.updates % this.enemyCD === 0 && this.updates < this.TimeInSeconds * 100) {
             //console.log("dsa323232dsa");
-            this.MakeEnemy(0);
-            //this.MakeEnemy(randomInteger(enemyTypes.length));
+            //this.MakeEnemy(0);
+            let randEnemy = randomInteger(enemyTypes.length);
+            this.MakeEnemy(randEnemy);
         } else if (!(this.updates < this.TimeInSeconds * 100) && enemies.length === 0) {
             //console.log("dsadsa");
             this.timeToNextWave -= deltaTime;
