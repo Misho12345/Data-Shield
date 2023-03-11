@@ -2,9 +2,11 @@
 
 class Virus extends Enemy {
     constructor(waveN) {
-        super('VirusImage', 1, randomInteger(memory) - memory / 2, randomInteger(2) * memory - memory / 2,150,150,0,4,3);
+        let speed = 2;
+        super('VirusImage', 3, randomInteger(memory) - memory / 2, randomInteger(2) * memory - memory / 2,150,150,0,4,3,speed);
         //this.position = new Vector2(randomInteger(memory) - memory / 2, randomInteger(memory) - memory / 2)
         this.position = new Vector2(0, 0);
+        this.speed = speed;
         this.dmg = waveN;
         this.hp = 10;
         this.zahapahCD = 0;
@@ -26,7 +28,7 @@ class Virus extends Enemy {
         }
         if (this.transform.position.DistanceFrom(player.transform.position) > 80) {
             let vec = Vector2.Subtraction(this.transform.position, player.transform.position).normalized;
-            vec.Scale(2);
+            vec.Scale(this.speed);
             this.transform.position.Subtract(vec);
 
         }

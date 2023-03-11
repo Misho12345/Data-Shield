@@ -85,6 +85,7 @@ class PlayerInput {
             let text = context.measureText("Press E to open the shop");
             context.fillText("Press E to open the shop", 760 - screenOffset.x - text.width / 2, -600 - screenOffset.y);
         }
+        
     }
 }
 

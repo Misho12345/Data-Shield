@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
     <head>
@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body onload="init()" class="full-fill">
+
+
         <canvas id="canvas" class="full-fill"></canvas>
 
         <div id="ui" class="full-fill">
@@ -114,7 +116,7 @@
                         </div>
                     </div>
 
-                    <div class="shop-column" >
+                    <div class="shop-column">
                         <div class="column-title">Upgrade Hardware</div>
                         <div class="column-content">
                             <div class="shop-item" onclick="UpgradeCPU()">
@@ -211,6 +213,7 @@
             <img src="Images/Enemies/wormTale.png" id="wormTaleImage" alt="" />
             <img src="Images/Enemies/kon.png" id="konImage" alt="" />
             <img src="Images/Enemies/hlebarka.png" id="hlebarkaImage" alt="" />
+            <img src="Images/Enemies/cage.png" id="cageImage" alt="" />
 
             <img src="Images/Weapons/magnum.png" id="magnum" alt="" />
             <img src="Images/Weapons/magnumBullet.png" id="magnumBullet" alt="" />
@@ -226,7 +229,7 @@
 
             <img src="Images/firewall.png" id="firewallImage" alt="" />
             <img src="Images/firewallLogo.png" id="firewallLogoImage" alt="" />
-    </div>
+        </div>
 
         <script src="Scripts/ShopActions.js"></script>
         <script src="Scripts/PopupAds.js"></script>
@@ -258,5 +261,9 @@
         <script src="Scripts/PlayerStats.js"></script>
 
         <script src="Scripts/PlayerAbilities.js"></script>
+
+        <!--<video muted poster="./Images/background.png" id="endScreen">
+            <source src="./Images/ded.mp4" type="video/mp4">
+        </video>-->
     </body>
 </html>

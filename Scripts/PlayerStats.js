@@ -30,7 +30,7 @@ function StartAnimation(idx, text) {
 }
 
 class PlayerStats  {
-    #hp = 100;
+    #hp = 20;
     #zoins = 1000;
     #steel = 1000;
     #strength = 100;
@@ -61,6 +61,9 @@ class PlayerStats  {
         this.#hp += v;
         this.#hpElement.innerText = this.#hp;
         StartAnimation(1, v);
+        if (this.#hp <= 0) {
+            umre();
+        }
     }
 
     get zoins() { return +this.#zoins }

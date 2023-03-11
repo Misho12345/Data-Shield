@@ -5,10 +5,10 @@ class Worm extends Enemy {
         let posoka = randomInteger(2) * 2 - 1;
         //super('wormHeadImage', 1, randomInteger(memory) - memory / 2, randomInteger(2) * memory - memory / 2, 200, 200);
         if (posoka>0) {
-            super('wormHeadImage', 10, posoka * memory / 2, randomInteger(memory) - memory / 2, 150, 200,Math.PI/2,4,2);
+            super('wormHeadImage', 10, posoka * memory / 2, randomInteger(memory) - memory / 2, 150, 200,Math.PI/2,4,2,1);
             //super('wormHeadImage', 10,0,0, 150, 200, Math.PI / 2);
         } else {
-            super('wormHeadImage', 10, posoka * memory / 2, randomInteger(memory) - memory / 2, 150, 200, -Math.PI / 2,4,2);
+            super('wormHeadImage', 10, posoka * memory / 2, randomInteger(memory) - memory / 2, 150, 200, -Math.PI / 2,4,2,1);
         }
         //this.position = new Vector2(randomInteger(memory) - memory / 2, randomInteger(memory) - memory / 2)
         this.position = new Vector2(0, 0);
