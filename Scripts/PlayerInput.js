@@ -6,12 +6,16 @@ class PlayerInput {
     #velocity = new Vector2();
     #zoins;
     #parichki;
-    speed = 40;
+
+    speed = 10;
     hp = 10;
 
+    lookingDir = 2;
+
     #maxOffset = 100;
-    coinsElement = document.getElementById('coins');
+    coinsElement = document.getElementById('zoins');
     parichkiElement = document.getElementById('parichki');
+
     set parichki(v) {
         this.#parichki = v;
         this.parichkiElement.innerText = v;
@@ -34,9 +38,9 @@ class PlayerInput {
         this.parichki = 0;
 
         input.AddAction("KeyW", undefined, _ => this.#velocity.y = -1, _ => this.#velocity.y = 0);
-        input.AddAction("KeyA", undefined, _ => this.#velocity.x = -1, _ => this.#velocity.x = 0);
+        input.AddAction("KeyA", _ => this.lookingDir = 1, _ => this.#velocity.x = -1, _ => this.#velocity.x = 0);
         input.AddAction("KeyS", undefined, _ => this.#velocity.y = 1, _ => this.#velocity.y = 0);
-        input.AddAction("KeyD", undefined, _ => this.#velocity.x = 1, _ => this.#velocity.x = 0);
+        input.AddAction("KeyD", _ => this.lookingDir = 0, _ => this.#velocity.x = 1, _ => this.#velocity.x = 0);
 
         input.AddAction("KeyE", _ => {
             if (this.inShopRange) {
@@ -44,12 +48,17 @@ class PlayerInput {
                 shopMenu.style.display = "flex";
             }
         });
-
-        input.AddAction("Space", undefined, _ => this.Shoot());
     }
 
     Update() {
-        if (this.#velocity.Equals(Vector2.zero)) return;
+        if (this.#velocity.Equals(Vector2.zero)) {
+            playerAnimator.stage = 2;
+            return;
+        }
+
+        playerAnimator.stage = this.lookingDir;
+
+        if (playerAnimator.paused) playerAnimator.Play();
 
         this.#velocity.Normalize();
         this.#velocity.Scale(this.speed * deltaTime * 100);
@@ -74,38 +83,25 @@ class PlayerInput {
             context.fillText("Press E to open the shop", 760 - screenOffset.x - text.width / 2, -600 - screenOffset.y);
         }
     }
-
-    Shoot() {
-        console.log("pow");
-    }
 }
 
-function StartAnimation(idx, text) {
-    let el = document.getElementById("animation" + idx);
-    el.innerText = text;
-    el.className = "animation"
+let player = new GameObject(Vector2.zero, new Vector2(150));
+let playerAnimator = player.AddComponent(Animator);
 
-    el.innerText = text;
+playerAnimator.stages = [
+    {delay: 0.15, length: 4},
+    {delay: 0.15, length: 4},
+    {delay: 0.15, length: 4}
+];
+playerAnimator.image = "player";
+playerAnimator.Play(0);
 
-    let number = +text;
-    if (isNaN(number) || number === 0) {
-        el.style.color = "gray";
-        el.innerText = "+" + number;
-    }
-    else if (number > 0) {
-        el.style.color = "green";
-        el.innerText = "+" + number;
-    }
-    else el.style.color = "red";
-
-    el.addEventListener("animationend", _ => {
-        el.classList.remove("animation");
-        el.innerText = "";
-    });
-}
-
-let player = new GameObject(Vector2.zero, new Vector2(100));
-
-player.AddComponent(Renderer).color = "red";
 let playerInput = player.AddComponent(PlayerInput);
 
+let weapon = new Weapon(
+    5, new Vector2(120, 38), player.transform, "magnum", [{delay: 0.05, length: 4}, {delay: 0.05, length: 4}],
+    new Vector2(20), "magnumBullet", [{delay: 0.03, length: 5}], 5, 800);
+
+// let weapon = new Weapon(
+//     5, new Vector2(120, 38), player.transform, "laser", [{delay: 0.05, length: 4}, {delay: 0.05, length: 4}],
+//     new Vector2(20), "laserProj", [{delay: 0.2, length: 4}], 5, 400);

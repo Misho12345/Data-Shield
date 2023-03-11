@@ -4,6 +4,29 @@ let isKeyDown = {};
 let isKeyPressed = {};
 let isKeyUp = {};
 
+let mousePos = new Vector2();
+let mouseClicked = false;
+
+window.addEventListener("mousemove", ev => {
+    let bounds = canvas.getBoundingClientRect();
+    let scaleX = canvas.width / bounds.width;
+    let scaleY = canvas.height / bounds.height;
+
+    mousePos.x = (ev.clientX - bounds.left) * scaleX - canvas.width / 2;
+    mousePos.y = (ev.clientY - bounds.top) * scaleY - canvas.height / 2;
+});
+
+function GetMousePos() {
+    return Vector2.Sum(mousePos, screenOffset);
+}
+
+window.addEventListener("mousedown", ev => {
+    mouseClicked = true;
+});
+
+window.addEventListener("mouseup", ev => {
+    mouseClicked = false;
+});
 
 window.addEventListener("keydown", key => {
     isKeyDown[key.code] = !isKeyPressed[key.code];
@@ -106,7 +129,6 @@ class Input {
         if (typeof foundIdx !== "undefined") {
             this.actions.splice(foundIdx);
             this.UpdateActions(foundIdx);
-
         }
     }
 }

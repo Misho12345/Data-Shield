@@ -7,7 +7,7 @@ function angleCalc(cX, cY, x, y) {
 }
 class Turet extends GameObject {
     constructor(model) {
-        super(new Vector2(playerInput.transform.position.x, playerInput.transform.position.y), new Vector2(200, 200));
+        super(new Vector2(input.transform.position.x, input.transform.position.y), new Vector2(200, 200));
         this.imageid = 'antivirusImage';
         this.model = model;
         this.updates = 0;

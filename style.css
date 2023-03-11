@@ -5,6 +5,8 @@
     padding: 0;
     font: 1.5vw 'Orbitron', sans-serif;
     color: white;
+
+    --dark-bg: #0007;
 }
 html {
     touch-action: manipulation;
@@ -19,7 +21,7 @@ html {
     overflow: hidden;
 }
 
-#canvas, #ui, .ui {
+canvas, #ui, .ui {
     position: fixed;
     user-select: none;
 }
@@ -28,6 +30,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .flex-dir-row {
@@ -114,7 +117,8 @@ html {
 }
 
 #pause-menu {
-    background: #000a;
+    background: var(--dark-bg);
+    display: none;
     row-gap: 2vw;
 }
 
@@ -163,4 +167,104 @@ html {
     width: 100%;
     text-align: center;
     text-shadow: 0 0 1vw #000;
+}
+
+#shop {
+    display: none;
+    background: var(--dark-bg);
+}
+
+#shop-border {
+    top: 10%;
+    bottom: 10%;
+    left: 10%;
+    right: 10%;
+
+    padding: 2% 5%;
+    column-gap: 3%;
+
+    background: var(--dark-bg);
+}
+
+.shop-column {
+    width: 40%;
+    height: 100%;
+}
+
+.column-title {
+    width: 100%;
+    height: 25%;
+    font-size: 3vw;
+}
+
+.column-content {
+    width: 100%;
+    height: 75%;
+    border-top-width: 0;
+
+    overflow-y: scroll;
+}
+
+.shop-item {
+    width: 100%;
+    height: 70%;
+}
+
+.animate-green-filter {
+    animation: green-filter 0.3s linear;
+}
+
+@keyframes green-filter {
+    0% {
+        filter: saturate(2) hue-rotate(0deg);
+    }
+    50% {
+        filter: saturate(4) hue-rotate(10deg);
+    }
+    100% {
+        filter: saturate(0) hue-rotate(0deg);
+    }
+}
+
+.shop-item:hover {
+    filter: brightness(80%);
+}
+
+.item-image {
+    width: 100%;
+    height: 80%;
+    background: cyan;
+}
+
+.item-image div {
+    width: 100%;
+    height: 85%;
+}
+
+.item-image img {
+    max-width: 80%;
+    max-height: 60%;
+}
+
+.item-image span {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    background: var(--dark-bg);
+}
+
+.item-price {
+    width: 100%;
+    height: 15%;
+    column-gap: 1vw;
+    background: #555;
+}
+
+.item-price img {
+    height: 70%;
+}
+
+.shop-column ::-webkit-scrollbar {
+    background: #0000;
+    width: 0;
 }

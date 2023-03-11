@@ -27,38 +27,48 @@ function PausePlay() {
     } else pauseMenu.style.display = "flex";
 }
 
-function resizePage() {
+canvas.width = 1920;
+canvas.height = 1080;
 
-    canvas.width = 1920;
-    canvas.height = 1080;
-    //canvas.width = window.innerWidth;
-    //canvas.height = window.innerHeight;
+function StartAnimation(idx, text) {
+    let el = document.getElementById("animation" + idx);
+    el.innerText = text;
+    el.className = "animation"
 
-    //context.translate(canvas.width / 2, canvas.height / 2);
+    el.innerText = text;
 
-    //for (const gObj of gameObjects)
-    //    for (const component of gObj.components)
-    //        if (component instanceof Renderer && typeof component.EarlyUpdate !== "undefined")
-    //            component.EarlyUpdate()
+    let number = +text;
+    if (isNaN(number) || number === 0) {
+        el.style.color = "gray";
+        el.innerText = "+" + number;
+    }
+    else if (number > 0) {
+        el.style.color = "green";
+        el.innerText = "+" + number;
+    }
+    else el.style.color = "red";
 
-    //for (const gObj of gameObjects)
-    //    for (const component of gObj.components)
-    //        if (component instanceof Renderer && typeof component.Update !== "undefined")
-    //            component.Update();
-
-    //for (const gObj of gameObjects)
-    //    for (const component of gObj.components)
-    //        if (component instanceof Renderer && typeof component.LateUpdate !== "undefined")
-    //            component.LateUpdate();
-
-    //context.translate(-canvas.width / 2, -canvas.height / 2);
+    el.addEventListener("animationend", _ => {
+        el.classList.remove("animation");
+        el.innerText = "";
+    });
 }
 
 function init() {
-    resizePage();
     time = new Date();
 
-    window.onresize = resizePage;
+    let shopItems = document.getElementsByClassName("shop-item");
+
+    for (let i = 0 ; i < shopItems.length; i++) {
+        shopItems[i].addEventListener("click", () => {
+            shopItems[i].classList.add('animate-green-filter');
+            console.log("in")
+        });
+        shopItems[i].addEventListener("animationend", () => {
+            shopItems[i].classList.remove('animate-green-filter');
+            console.log("out")
+        });
+    }
 
     for (const gObj of gameObjects)
         for (const component of gObj.components)

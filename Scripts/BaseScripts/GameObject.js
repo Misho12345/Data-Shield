@@ -14,8 +14,8 @@ class GameObject {
 
         this.transform = this.AddComponent(Transform);
 
-        this.transform.position = position;
-        this.transform.scale = scale;
+        this.transform.position = position.copy;
+        this.transform.scale = scale.copy;
         this.transform.rotation = rotation;
     }
 
