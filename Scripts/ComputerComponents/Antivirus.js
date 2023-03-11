@@ -40,26 +40,73 @@ class Turet extends GameObject {
                 //this.bullets[i].draw();
             //}
         }
+        this.fakeRandomizer = randomInteger(3);
     }
 
     Update() {
-        this.updates++;
-        if (this.model == 'SX-R226') {
-            //console.log("23232");
-            //for (let i = 0; i < this.bullets.length; i++) {
-            //    this.bullets[i].update();
-            //}
-            for (let i = 0; i < enemies.length; i++) {
-                //console.log("asd"); 
-                if (this.transform.position.DistanceFrom(enemies[i].transform.position) < 2000 && this.updates%200==0) {
-                    // console.log("dsadsa");
-                    batteryUpdate.charge -= 10;
-                    wifiBullets.push(new wifiBullet(
-                        this.transform.position.x,
-                        this.transform.position.y,
-                        enemies[i]));
-                    return;
+        
+        if (batteryUpdate.charge > batteryUpdate.cap / 10) {
+            this.updates++;
+            if (this.model == 'SX-R226') {
+                //console.log("23232");
+                //for (let i = 0; i < this.bullets.length; i++) {
+                //    this.bullets[i].update();
+                //}
+                for (let i = 0; i < enemies.length; i++) {
+                    //console.log("asd"); 
+                    if (this.transform.position.DistanceFrom(enemies[i].transform.position) < 2400 && this.updates % 200 == 0 && enemies[i].animator.stage!=4) {
+                        // console.log("dsadsa");
+                        batteryUpdate.charge -= 10;
+                        wifiBullets.push(new wifiBullet(
+                            this.transform.position.x,
+                            this.transform.position.y,
+                            enemies[i]));
+                        return;
+                    }
                 }
+            }
+            if (this.model == 'SX-T445') {
+                this.animator.Play(1);
+                //console.log("23232");
+                //for (let i = 0; i < this.bullets.length; i++) {
+                //    this.bullets[i].update();
+                //}
+                for (let i = 0; i < enemies.length; i++) {
+                    //console.log("asd"); 
+                    if (this.transform.position.DistanceFrom(enemies[i].transform.position) < 1200 && this.updates % 200 == 0 && enemies[i].animator.stage != 4) {
+                        // console.log("dsadsa");
+                        batteryUpdate.charge -= 10;
+                        wifiBullets.push(new wifiBullet(
+                            this.transform.position.x,
+                            this.transform.position.y,
+                            enemies[i]));
+                        //return;
+                    }
+                }
+            }
+            if (this.model == 'DR-X655') {
+                this.animator.Play(2);
+                //console.log("23232");
+                //for (let i = 0; i < this.bullets.length; i++) {
+                //    this.bullets[i].update();
+                //}
+                for (let i = 0; i < enemies.length; i++) {
+                    //console.log("asd"); 
+                    if (this.transform.position.DistanceFrom(enemies[i].transform.position) < 1200 && this.updates % 200 == 0 && enemies[i].animator.stage != 4) {
+                        // console.log("dsadsa");
+                        batteryUpdate.charge -= 10;
+                        wifiBullets.push(new wifiBullet(
+                            this.transform.position.x,
+                            this.transform.position.y,
+                            enemies[i]));
+                        //return;
+                    }
+                }
+            }
+
+            if (this.model == 'FAKE') {
+                this.animator.Play(this.fakeRandomizer);
+                batteryUpdate.charge -= 0.05;
             }
         }
     }

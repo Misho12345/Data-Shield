@@ -80,10 +80,10 @@ function areCollidingEnemies(a, b) {
         a.position.y <= b.position.y + b.scale.y/2)
 }
 function areColliding(a, b) {
-    return (b.position.x <= a.position.x + a.scale.x  &&
-        a.position.x <= b.position.x + b.scale.x &&
-        b.position.y <= a.position.y + a.scale.y &&
-        a.position.y <= b.position.y + b.scale.y)
+    return (b.position.x - b.scale.x / 2 <= a.position.x - a.scale.x /2  + a.scale.x &&
+            a.position.x - a.scale.x / 2 <= b.position.x - b.scale.x / 2 + b.scale.x &&
+            b.position.y - b.scale.y / 2 <= a.position.y - a.scale.y / 2 + a.scale.y &&
+            a.position.y - a.scale.y / 2 <= b.position.y - b.scale.y / 2 + b.scale.y)
 }
 
 function endOfWave() {
@@ -93,7 +93,7 @@ function endOfWave() {
 let enemies = [];
 let enemyCount = enemies.length;
 function update() {
-    console.log(playerInput.hp)
+    ///console.log(playerInput.hp)
     for (let i = 0; i < folders.length; i++) {
         if (folders[i].hp <= 0) {
             folders[i].animator.stage = 1;

@@ -1,7 +1,7 @@
 "use strict";
 
 let folders = [];
-
+folders.push(CPU);
 class Folder extends GameObject {
     constructor() {
         let kvdX = randomInteger(3);

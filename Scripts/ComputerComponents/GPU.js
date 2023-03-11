@@ -5,7 +5,7 @@ let GPU = new GameObject(new Vector2(-180, -435), new Vector2(350, 192));
 class GPUClass {
     updates = 0;
     parichkiPerWave = 3;
-    capacitet = 0.003;
+    capacitet = 0.010;
     Update() {
         if (batteryUpdate.charge <= 0) {
             GPUAnimator.Pause();
