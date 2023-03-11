@@ -276,3 +276,54 @@ canvas, #ui, .ui {
     background: #0000;
     width: 0;
 }
+
+.popup-ad-content {
+    position: absolute;
+}
+
+.popup-ad-X {
+    top: 0;
+    right: 0;
+    height: 7%;
+    aspect-ratio: 1;
+    filter: brightness(130%);
+}
+
+.popup-ad-X:hover {
+    filter: brightness(100%);
+}
+
+.popup-ad-title {
+    top: 10%;
+    font-size: 3.5vw;
+    color: white;
+
+    text-shadow:
+            -0.3vw   0      0 black,
+             0.3vw   0      0 black,
+             0      -0.3vw  0 black,
+             0       0.3vw  0 black;
+}
+
+.popup-ad-button {
+    bottom: 10%;
+    width: 40%;
+    height: 20%;
+    padding: 2% 5%;
+    column-gap: 2vh;
+
+    background: #000a;
+}
+
+.popup-ad-button:hover {
+    filter: brightness(75%);
+}
+
+.popup-ad-button span {
+    font-size: 4vh;
+    color: white;
+}
+
+.popup-ad-button img {
+    height: 50%;
+}

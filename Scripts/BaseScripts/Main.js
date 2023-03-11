@@ -74,6 +74,7 @@ function areColliding(a, b) {
 function endOfWave() {
     folders.push(new Folder());
     playerStats.increaseSteel(GPUUpdate.zoinsPerWave);
+    GeneratePopupAds();
 }
 
 let enemies = [];

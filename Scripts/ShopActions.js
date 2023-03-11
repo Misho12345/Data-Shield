@@ -64,7 +64,7 @@ function BuyLaser() {
             50, new Vector2(122, 44), player.transform, "laser", [{delay: -1, length: 3}, {delay: -1, length: 3}],
             new Vector2(50), "laserProj", [{delay: -1, length: 4}], 10, 1, 700, true, false,
             enemy => {
-
+        
             }));
     }
 }
