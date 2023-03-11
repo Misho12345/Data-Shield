@@ -65,6 +65,7 @@ canvas, #ui, .ui {
 
 .side-list-el {
     width: 100%;
+    position: relative;
 }
 
 .side-list-el-v {
@@ -90,10 +91,17 @@ canvas, #ui, .ui {
         opacity: 0;
         transform: translateX(100%);
     }
+
     50% {
         opacity: 1;
         transform: translateX(0%);
     }
+
+    60% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+
     100% {
         opacity: 0;
         transform: translateX(-50%);

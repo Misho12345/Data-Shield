@@ -4,8 +4,9 @@ let GPU = new GameObject(new Vector2(-180, -435), new Vector2(350, 192));
 
 class GPUClass {
     updates = 0;
-    parichkiPerWave = 3;
-    capacitet = 0.010;
+    zoinsPerWave = 3;
+    capacity = 0.01;
+
     Update() {
         if (batteryUpdate.charge <= 0) {
             GPUAnimator.Pause();
@@ -14,7 +15,7 @@ class GPUClass {
 
         if (GPUAnimator.paused) GPUAnimator.Play();
         GPUAnimator.framesDelay = 1 / (10 + batteryUpdate.charge);
-        batteryUpdate.charge -= this.capacitet;
+        batteryUpdate.charge -= this.capacity;
         /*
         this.updates++;
         this.updates = this.updates % 100;
