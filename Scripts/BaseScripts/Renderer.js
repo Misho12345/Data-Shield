@@ -4,6 +4,8 @@ let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
 
 class Renderer {
+    draw = true;
+
     color;
     imageId;
 
@@ -11,6 +13,8 @@ class Renderer {
     offset = new Vector2();
 
     LateUpdate() {
+        if (!this.draw) return;
+
         const centerPos = Vector2.Subtraction(this.transform.centerPos, screenOffset);
 
         let a = Math.max(this.transform.scale.x, this.transform.scale.y);

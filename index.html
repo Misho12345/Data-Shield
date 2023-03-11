@@ -15,48 +15,51 @@
             <div class="side-list ui" style="top: 0; right: 0;">
                 <div class="center flex-dir-column">
                     <div class="center flex-dir-row side-list-el">
-                        <img class="icon" src="Images/UI/coin.gif" alt="" />
-                        <span id="zoins" class="side-list-el-v">100</span>
+                        <div id="animation1" class="center"></div>
+                        <img class="icon" src="Images/UI/heart.png" alt="" />
+                        <span id="health" class="side-list-el-v">0</span>
                     </div>
 
                     <div class="center flex-dir-row side-list-el">
-                        <img class="icon" src="Images/UI/bitcoin.png" alt="" />
-                        <span id="parichki" class="side-list-el-v">100</span>
+                        <div id="animation2" class="center"></div>
+                        <img class="icon" src="Images/UI/coin.gif" alt="" />
+                        <span id="zoins" class="side-list-el-v">0</span>
+                    </div>
+
+                    <div class="center flex-dir-row side-list-el">
+                        <div id="animation3" class="center"></div>
+                        <img class="icon" src="Images/UI/steel.gif" alt="" />
+                        <span id="steel" class="side-list-el-v">0</span>
                     </div>
                 </div>
             </div>
 
             <div class="side-list ui" style="top: 50%; right: 0;">
                 <div class="center flex-dir-column">
-                    <div class="center flex-dir-row side-list-el" style="position: relative">
-                        <div id="animation1"></div>
+                    <div class="center flex-dir-row side-list-el">
+                        <div id="animation4" class="center"></div>
                         <img class="icon" src="Images/UI/strength.png" alt="" />
-                        <span class="side-list-el-v">235</span>
+                        <span id="strength" class="side-list-el-v">0</span>
                     </div>
 
-                    <div class="center flex-dir-row side-list-el" style="position: relative">
-                        <div id="animation2"></div>
+                    <div class="center flex-dir-row side-list-el">
+                        <div id="animation5" class="center"></div>
                         <img class="icon" src="Images/UI/speed.png" alt="" />
-                        <span class="side-list-el-v">8</span>
+                        <span id="speed" class="side-list-el-v">0</span>
                     </div>
 
-                    <div class="center flex-dir-row side-list-el" style="position: relative">
-                        <div id="animation3"></div>
+                    <div class="center flex-dir-row side-list-el">
+                        <div id="animation6" class="center"></div>
                         <img class="icon" src="Images/UI/hitSpeed.png" alt="" />
-                        <span class="side-list-el-v">44</span>
+                        <span id="hitSpeed" class="side-list-el-v">0</span>
                     </div>
 
-                    <div class="center flex-dir-row side-list-el" style="position: relative">
-                        <div id="animation4"></div>
+                    <div class="center flex-dir-row side-list-el">
+                        <div id="animation7" class="center"></div>
                         <img class="icon" src="Images/UI/bulletSpeed.png" alt="" />
-                        <span class="side-list-el-v">15</span>
+                        <span id="bulletSpeed" class="side-list-el-v">0</span>
                     </div>
                 </div>
-            </div>
-
-            <div id="weapon" class="ui center circle flex-dir-column">
-                <img id="weapon-img" style="width: 70%; transform: rotate(-10deg);" src="Images/UI/magnum.png" alt="" />
-                <div style="margin: 4% 0 -8% 20%"><span id="weapon-curr-ammo">5</span> / <span id="weapon-max-ammo">12</span></div>
             </div>
 
             <img id="pause-button" class="ui" onclick="PausePlay()" src="Images/UI/pause.png" alt="pause button" />
@@ -81,21 +84,7 @@
                     <div class="shop-column">
                         <div class="column-title center">Weapons</div>
                         <div class="column-content">
-                            <div class="shop-item">
-                                <div class="item-image center flex-dir-column">
-                                    <div class="center">
-                                        <img src="Images/UI/magnum.png" alt="">
-                                    </div>
-                                    <span class="center">Magnum</span>
-                                </div>
-
-                                <div class="item-price center flex-dir-row">
-                                    <div>69</div>
-                                    <img src="Images/UI/coin.gif" alt="">
-                                </div>
-                            </div>
-
-                            <div class="shop-item">
+                            <div id="laser-item" class="shop-item" onclick="BuyLaser(); this.remove()">
                                 <div class="item-image center flex-dir-column">
                                     <div class="center">
                                         <img src="Images/UI/laser.png" alt="">
@@ -104,7 +93,7 @@
                                 </div>
 
                                 <div class="item-price center flex-dir-row">
-                                    <div>69</div>
+                                    <div>300</div>
                                     <img src="Images/UI/coin.gif" alt="">
                                 </div>
                             </div>
@@ -128,7 +117,7 @@
                     <div class="shop-column" >
                         <div class="column-title">Upgrade Hardware</div>
                         <div class="column-content">
-                            <div class="shop-item">
+                            <div class="shop-item" onclick="UpgradeCPU()">
                                 <div class="item-image center flex-dir-column">
                                     <div class="center">
                                         <img src="Images/UI/CPU.png" alt="">
@@ -137,12 +126,12 @@
                                 </div>
 
                                 <div class="item-price center flex-dir-row">
-                                    <div>69</div>
-                                    <img src="Images/UI/coin.gif" alt="">
+                                    <div id="CPUPrice">10</div>
+                                    <img src="Images/UI/steel.gif" alt="">
                                 </div>
                             </div>
 
-                            <div class="shop-item">
+                            <div class="shop-item" onclick="UpgradeGPU()">
                                 <div class="item-image center flex-dir-column">
                                     <div class="center">
                                         <img src="Images/UI/GPU.png" alt="">
@@ -151,22 +140,22 @@
                                 </div>
 
                                 <div class="item-price center flex-dir-row">
-                                    <div>69</div>
-                                    <img src="Images/UI/coin.gif" alt="">
+                                    <div id="GPUPrice">20</div>
+                                    <img src="Images/UI/steel.gif" alt="">
                                 </div>
                             </div>
 
-                            <div class="shop-item">
+                            <div class="shop-item" onclick="UpgradeBattery()">
                                 <div class="item-image center flex-dir-column">
                                     <div class="center">
-                                        <img src="Images/UI/Battery.png" alt="">
+                                        <img src="Images/UI/battery.png" alt="">
                                     </div>
                                     <span class="center">Battery</span>
                                 </div>
 
                                 <div class="item-price center flex-dir-row">
-                                    <div>69</div>
-                                    <img src="Images/UI/coin.gif" alt="">
+                                    <div id="BatteryPrice">30</div>
+                                    <img src="Images/UI/steel.gif" alt="">
                                 </div>
                             </div>
                         </div>
@@ -175,30 +164,30 @@
                     <div class="shop-column">
                         <div class="column-title center">Other</div>
                         <div class="column-content">
-                            <div class="shop-item">
+                            <div class="shop-item" onclick="BuyEnergy(5)">
                                 <div class="item-image center flex-dir-column">
                                     <div class="center">
                                         <img src="Images/UI/energy.png" alt="">
                                     </div>
-                                    <span class="center">Toci</span>
+                                    <span class="center">25% Energy</span>
                                 </div>
 
                                 <div class="item-price center flex-dir-row">
-                                    <div>69</div>
+                                    <div>5</div>
                                     <img src="Images/UI/coin.gif" alt="">
                                 </div>
                             </div>
 
-                            <div class="shop-item">
+                            <div class="shop-item" onclick="BuyHp(20)">
                                 <div class="item-image center flex-dir-column">
                                     <div class="center">
-                                        <img src="Images/UI/energy.png" alt="">
+                                        <img src="Images/UI/heart.png" alt="">
                                     </div>
-                                    <span class="center">Zhivot</span>
+                                    <span class="center">5 HP</span>
                                 </div>
 
                                 <div class="item-price center flex-dir-row">
-                                    <div>69</div>
+                                    <div>20</div>
                                     <img src="Images/UI/coin.gif" alt="">
                                 </div>
                             </div>
@@ -232,6 +221,8 @@
             <img src="Images/Weapons/firewall.png" id="firewall" alt="" />
         </div>
 
+        <script src="Scripts/ShopActions.js"></script>
+
         <script src="Scripts/BaseScripts/Vector2.js"></script>
         <script src="Scripts/BaseScripts/Transform.js"></script>
         <script src="Scripts/BaseScripts/Renderer.js"></script>
@@ -248,13 +239,12 @@
 
         <script src="Scripts/Enemy/Enemies/Enemy.js"></script>
         <script src="Scripts/Enemy/Enemies/Virus.js"></script>
-    <script src="Scripts/Enemy/Enemies/Enemy.js"></script>
-    <script src="Scripts/Enemy/Enemies/Virus.js"></script>
-    <script src="Scripts/Enemy/Enemies/Worm.js"></script>
+        <script src="Scripts/Enemy/Enemies/Worm.js"></script>
 
         <script src="Scripts/Enemy/Waves.js"></script>
 
         <script src="Scripts/Weapon.js"></script>
         <script src="Scripts/PlayerInput.js"></script>
+        <script src="Scripts/PlayerStats.js"></script>
     </body>
 </html>

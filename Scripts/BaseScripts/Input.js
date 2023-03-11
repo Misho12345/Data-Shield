@@ -20,13 +20,8 @@ function GetMousePos() {
     return Vector2.Sum(mousePos, screenOffset);
 }
 
-window.addEventListener("mousedown", ev => {
-    mouseClicked = true;
-});
-
-window.addEventListener("mouseup", ev => {
-    mouseClicked = false;
-});
+window.addEventListener("mousedown", ev => mouseClicked = true);
+window.addEventListener("mouseup", ev => mouseClicked = false);
 
 window.addEventListener("keydown", key => {
     isKeyDown[key.code] = !isKeyPressed[key.code];

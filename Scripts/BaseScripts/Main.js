@@ -1,5 +1,6 @@
 "use strict";
 
+let screenOffset = new Vector2();
 let deltaTime;
 let time;
 
@@ -30,29 +31,7 @@ function PausePlay() {
 canvas.width = 1920;
 canvas.height = 1080;
 
-function StartAnimation(idx, text) {
-    let el = document.getElementById("animation" + idx);
-    el.innerText = text;
-    el.className = "animation"
 
-    el.innerText = text;
-
-    let number = +text;
-    if (isNaN(number) || number === 0) {
-        el.style.color = "gray";
-        el.innerText = "+" + number;
-    }
-    else if (number > 0) {
-        el.style.color = "green";
-        el.innerText = "+" + number;
-    }
-    else el.style.color = "red";
-
-    el.addEventListener("animationend", _ => {
-        el.classList.remove("animation");
-        el.innerText = "";
-    });
-}
 
 function init() {
     time = new Date();
@@ -62,11 +41,9 @@ function init() {
     for (let i = 0 ; i < shopItems.length; i++) {
         shopItems[i].addEventListener("click", () => {
             shopItems[i].classList.add('animate-green-filter');
-            console.log("in")
         });
         shopItems[i].addEventListener("animationend", () => {
             shopItems[i].classList.remove('animate-green-filter');
-            console.log("out")
         });
     }
 
@@ -98,12 +75,13 @@ function areColliding(a, b) {
 
 function endOfWave() {
     folders.push(new Folder());
-    playerInput.parichki = playerInput.parichki + GPUUpdate.parichkiPerWave;
+    playerStats.increaseSteel(GPUUpdate.zoinsPerWave);
 }
+
 let enemies = [];
 let enemyCount = enemies.length;
+
 function update() {
-    console.log(playerInput.hp)
     for (let i = 0; i < folders.length; i++) {
         if (folders[i].hp <= 0) {
             folders[i].animator.stage = 1;

@@ -27,9 +27,9 @@ class Worm extends Enemy {
 
     Update() {
         this.updates++;
-        if (this.updates % 30 == 0) {
-            if (areColliding(this.transform, playerInput.transform)) {
-                playerInput.hp -= 1;
+        if (this.updates % 30 === 0) {
+            if (areColliding(this.transform, player.transform)) {
+                playerStats.increaseHp(-1);
             }
             for (let i = 0; i < folders.length; i++) {
                 if (areColliding(this.transform, folders[i].transform)) {
@@ -105,7 +105,7 @@ class Tale extends GameObject {
            // if (typeof this.Update !== "undefined") this.Update();
 
             if (this.hp <= 0) {
-                //playerInput.zoins = playerInput.zoins + this.typeEnemy;
+                //playerStats.increaseZoins(this.typeEnemy);
                 //enemies.splice(this.enemyIdx, 1);
                 //for (let i = this.enemyIdx; i < enemies.length; i++) {
                 //    enemies[i].enemyIdx = i;
