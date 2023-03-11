@@ -3,6 +3,8 @@
 let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
 
+let screenOffset = new Vector2();
+
 class Renderer {
     draw = true;
 
