@@ -2,11 +2,13 @@
 
 class Bug extends Enemy {
     constructor(waveN) {
-        super('hlebarkaImage', 1, randomInteger(memory) - memory / 2, randomInteger(2) * memory - memory / 2, 200, 100, 0,8,3);
+        let speed = 3;
+        super('hlebarkaImage', 1, randomInteger(memory) - memory / 2, randomInteger(2) * memory - memory / 2, 200, 100, 0,8,3,speed);
         //this.position = new Vector2(randomInteger(memory) - memory / 2, randomInteger(memory) - memory / 2)
         this.position = new Vector2(0, 0);
         this.dmg = waveN;
         this.hp = 10;
+        this.speed = speed;
         this.zahapahCD = 0;
         this.x = this.transform.position.x;
         this.y = this.transform.position.y;
@@ -40,7 +42,7 @@ class Bug extends Enemy {
         }
         if (this.transform.position.DistanceFrom(player.transform.position) > 80) {
             let vec = Vector2.Subtraction(this.transform.position, player.transform.position).normalized;
-            vec.Scale(6);
+            vec.Scale(this.speed);
             this.transform.position.Subtract(vec);
 
         }

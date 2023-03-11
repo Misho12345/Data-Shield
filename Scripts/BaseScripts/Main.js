@@ -75,7 +75,15 @@ function endOfWave() {
     folders.push(new Folder());
     playerStats.increaseSteel(GPUUpdate.zoinsPerWave);
 }
+//let video = document.getElementById("endScreen");
+function umre() {
+    console.log("dsa");
 
+        //canvas.style.display = "none";
+        //video.play();
+        //video.style.zoom = 0.2;
+
+};
 let enemies = [];
 let enemyCount = enemies.length;
 
